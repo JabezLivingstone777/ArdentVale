@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy, memo } from 'react';
 import { Link } from "react-router-dom";
+import { ArrowUp, ChevronDown, ChevronUp } from 'lucide-react';
+// Lazy load Lottie
+const Lottie = lazy(() => import('lottie-react'));
+import recruitmentAnimation from "../assets/Recruitment Hiring.json";
 import modelImg from '../assets/model.png';
 import productChainImg from '../assets/product-chain.png';
 import softwareEngineerImg from '../assets/softwareengineer.png';
 import teamLeaderImg from '../assets/team-leader.png';
-import { ArrowUp, ChevronDown, ChevronUp, Brain, Clock, TrendingUp, Settings, Users, Code } from 'lucide-react';
-import Lottie from "lottie-react";
-import recruitmentAnimation from "../assets/Recruitment Hiring.json";
 
 
 const StaffAugmentationPage = () => {
     const [openAccordion, setOpenAccordion] = useState('why-choose');
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+
 
     const toggleAccordion = (section) => {
         setOpenAccordion(openAccordion === section ? '' : section);
     };
+
+    // Memoized image component
+    const OptimizedImg = memo(({ src, alt, className }) => (
+        <img loading="lazy" src={src} alt={alt} className={className} />
+    ));
 
     return (
         <div className="bg-white">
@@ -68,18 +72,20 @@ const StaffAugmentationPage = () => {
                             {/* Lottie Animation */}
                             <div className="flex justify-center mt-4 md:mt-0">
                                 <div className="w-full sm:w-[400px] md:w-[450px] h-auto">
-                                    <Lottie
-                                        animationData={recruitmentAnimation}
-                                        loop
-                                        autoplay
-                                        style={{ width: "100%", height: "auto" }}
-                                    />
+                                    <Suspense fallback={<div className="w-full h-40 flex items-center justify-center">Loading animation...</div>}>
+                                        <Lottie
+                                            animationData={recruitmentAnimation}
+                                            loop
+                                            autoplay
+                                            style={{ width: "100%", height: "auto" }}
+                                        />
+                                    </Suspense>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="py-10 bg-white">
+                {/* <section className="py-10 bg-white">
                     <div className="max-w-5xl mx-auto px-6 text-center">
                         <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-6">Client</h2>
                         <p className="text-gray-700 leading-relaxed text-lg">
@@ -89,7 +95,7 @@ const StaffAugmentationPage = () => {
                             Our demand-supply recruitment framework is supported by a robust 24/7 recruitment engine and an extensive database of industry requirements—ensuring you always stay ahead in the job market.
                         </p>
                     </div>
-                </section>
+                </section> */}
                 <div className="mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-6">
                         Our Engagement Models
@@ -100,7 +106,7 @@ const StaffAugmentationPage = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl border border-gray-200 hover:bg-slate-900 hover:text-white group transition-colors duration-200">
                             <div className="flex justify-center mb-6">
-                                <img src={productChainImg} alt="Product Development" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+                                <OptimizedImg src={productChainImg} alt="Product Development" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
                             </div>
                             <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 group-hover:text-white transition-colors">Product Development</h3>
                             <p className="text-slate-900 group-hover:text-white text-sm sm:text-base leading-relaxed transition-colors">
@@ -111,7 +117,7 @@ const StaffAugmentationPage = () => {
                         <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl border border-gray-200 hover:bg-slate-900 hover:text-white group transition-colors duration-200">
                             <div className="flex justify-center mb-6">
                                 {/* <img src={teamLeaderImg} alt="Team Extension" className="w-20 h-20 object-contain" /> */}
-                                <img src={teamLeaderImg} alt="Team Extension" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+                                <OptimizedImg src={teamLeaderImg} alt="Team Extension" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
                             </div>
                             <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Team Extension</h3>
                             <p className="text-slate-900 group-hover:text-white leading-relaxed transition-colors">
@@ -122,7 +128,7 @@ const StaffAugmentationPage = () => {
                         <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl border border-gray-200 hover:bg-slate-900 hover:text-white group transition-colors duration-200">
                             <div className="flex justify-center mb-6">
                                 {/* <img src={softwareEngineerImg} alt="Dedicated Development Team" className="w-20 h-20 object-contain" /> */}
-                                <img src={softwareEngineerImg} alt="Dedicated Development Team" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+                                <OptimizedImg src={softwareEngineerImg} alt="Dedicated Development Team" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
                             </div>
                             <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Dedicated Development Team</h3>
                             <p className="text-slate-900 group-hover:text-white leading-relaxed transition-colors">
@@ -157,7 +163,7 @@ const StaffAugmentationPage = () => {
                             </ul>
                         </div>
                         <div className="flex justify-center">
-                            <img src={modelImg} alt="Our Model" className="w-full max-w-md rounded-lg shadow-lg" />
+                            <OptimizedImg src={modelImg} alt="Our Model" className="w-full max-w-md rounded-lg shadow-lg" />
                         </div>
                     </div>
                 </div>

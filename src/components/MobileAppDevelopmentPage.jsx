@@ -89,7 +89,7 @@ const MobileAppDevelopmentPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="py-10 bg-white">
+            {/* <section className="py-10 bg-white">
                 <div className="max-w-5xl mx-auto px-6 text-center">
                     <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-6">Job Seeker</h2>
                     <p className="text-gray-700 leading-relaxed text-lg">
@@ -101,7 +101,7 @@ const MobileAppDevelopmentPage = () => {
                         Our demand-supply recruitment framework is supported by a robust 24/7 recruitment engine and an extensive database of industry requirements—ensuring you always stay ahead in the job market.
                     </p>
                 </div>
-            </section>
+            </section> */}
             {/* Our custom mobile app development service Suite */}
             <section className="py-12 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 lg:max-w-[85%]">

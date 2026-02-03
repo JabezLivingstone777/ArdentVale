@@ -1,4 +1,13 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
+// Simple loading spinner
+const LoadingSpinner = () => (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100px' }}>
+        <svg className="animate-spin h-8 w-8 text-slate-900" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+        </svg>
+    </div>
+);
 import {
     Search,
     Settings,
@@ -12,10 +21,7 @@ import {
 import productChainImg from "../assets/product-chain.png";
 import softwareEngineerImg from "../assets/softwareengineer.png";
 import teamLeaderImg from "../assets/team-leader.png";
-import commitmentImg from "../assets/Commitment to Timelines.png";
-import agileImg from "../assets/Agile Development.png";
-import strategicImg from "../assets/Strategic Planning.png";
-import businessAnalysisImg from "../assets/Business Analysis.png";
+
 import Lottie from "lottie-react";
 import webDevAnimation from "../assets/webdev.json";
 import goLogo from "../assets/Techeminence/Go-Logo.png";
@@ -30,29 +36,11 @@ import nodejsLogo from "../assets/Techeminence/nodejsDark.png";
 import kotlinLogo from "../assets/Techeminence/kotlin-logo.png";
 import javaLogo from "../assets/Techeminence/Java.png";
 import Footer from "./Footer";
+import CardsLifecycleSection from "./CardsLifecycleSection";
+
 
 const WebDesignPage = () => {
-    const [animationData, setAnimationData] = useState(null);
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-
-        let mounted = true;
-        import("../assets/webdev.json")
-            .then((mod) => {
-                if (mounted) setAnimationData(mod.default);
-            })
-            .catch(() => { });
-
-        return () => {
-            mounted = false;
-            setAnimationData(null);
-        };
-    }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+    // ...existing code...
 
     const coreWebData = useMemo(
         () => [
@@ -170,7 +158,7 @@ const WebDesignPage = () => {
                         </div>
                     </div>
                 </section>
-                <section className="py-10 bg-white">
+                {/* <section className="py-10 bg-white">
                     <div className="max-w-5xl mx-auto px-6 text-center">
                         <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-6">Employee</h2>
                         <p className="text-gray-700 leading-relaxed text-lg">
@@ -180,7 +168,7 @@ const WebDesignPage = () => {
                             Our demand-supply recruitment framework is supported by a robust 24/7 recruitment engine and an extensive database of industry requirements—ensuring you always stay ahead in the job market.
                         </p>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Core Web Offerings */}
                 <section className="py-12 bg-gray-50">
@@ -233,73 +221,10 @@ const WebDesignPage = () => {
                         Full Lifecycle Web Development
                     </h2>
 
-                    {(() => {
-                        const [cards, setCards] = React.useState([
-                            {
-                                img: businessAnalysisImg,
-                                title: "Business Analysis",
-                                desc:
-                                    "We begin with deep-dive discovery sessions, stakeholder interviews, and market research to define goals, identify challenges, and align the product vision with your business needs.",
-                            },
-                            {
-                                img: strategicImg,
-                                title: "Strategic Planning",
-                                desc:
-                                    "Our planning process includes scope definition, timeline estimation, resource allocation, and roadmap creation—setting the foundation for an efficient, result-oriented engagement.",
-                            },
-                            {
-                                img: agileImg,
-                                title: "Agile Development",
-                                desc:
-                                    "We use Agile methodologies to enable iterative delivery, continuous feedback, and flexible execution. This ensures reduced risk, improved product quality, and faster time to market.",
-                            },
-                            {
-                                img: commitmentImg,
-                                title: "Commitment to Timelines",
-                                desc:
-                                    "Guided by ISO-compliant standards and best practices, our team delivers on every milestone with punctuality, transparency & dedication making us a trusted long-term partner.",
-                            },
-                        ]);
-
-                        let dragIndex = null;
-
-                        const handleDragStart = (index) => {
-                            dragIndex = index;
-                        };
-
-                        const handleDrop = (index) => {
-                            const updated = [...cards];
-                            const draggedCard = updated[dragIndex];
-                            updated.splice(dragIndex, 1);
-                            updated.splice(index, 0, draggedCard);
-                            setCards(updated);
-                        };
-
-                        return (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-                                {cards.map((card, index) => (
-                                    <div
-                                        key={index}
-                                        draggable
-                                        onDragStart={() => handleDragStart(index)}
-                                        onDragOver={(e) => e.preventDefault()}
-                                        onDrop={() => handleDrop(index)}
-                                        className="bg-white rounded-lg shadow-lg p-4 sm:p-6 text-center hover:shadow-xl transition-shadow cursor-move select-none"
-                                    >
-                                        <div className="flex justify-center mb-4">
-                                            <img
-                                                src={card.img}
-                                                alt={card.title}
-                                                className="w-12 sm:w-16 h-12 sm:h-16 object-contain"
-                                            />
-                                        </div>
-                                        <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">{card.title}</h3>
-                                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{card.desc}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        );
-                    })()}
+                    {/* Refactored: useState for cards at top level, not inside callback */}
+                    <React.Suspense fallback={<LoadingSpinner />}>
+                        <CardsLifecycleSection />
+                    </React.Suspense>
 
                 </div>
 

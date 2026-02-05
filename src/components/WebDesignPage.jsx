@@ -1,13 +1,46 @@
 import React, { useState, useMemo } from "react";
-// Simple loading spinner
+
+// Custom loading spinner component
 const LoadingSpinner = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100px' }}>
-        <svg className="animate-spin h-8 w-8 text-slate-900" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-        </svg>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100px', position: 'relative' }}>
+        <span className="custom-loader"></span>
+        <style>{`
+            .custom-loader {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: inline-block;
+                border-top: 4px solid #0f172a;
+                border-right: 4px solid transparent;
+                box-sizing: border-box;
+                animation: rotation 1s linear infinite;
+                position: relative;
+            }
+            .custom-loader::after {
+                content: '';  
+                box-sizing: border-box;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                border-left: 4px solid #FF3D00;
+                border-bottom: 4px solid transparent;
+                animation: rotation 0.5s linear infinite reverse;
+            }
+            @keyframes rotation {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        `}</style>
     </div>
 );
+
 import {
     Search,
     Settings,

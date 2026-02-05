@@ -45,8 +45,8 @@ const ContactSection = () => {
                             <p className="mb-4">Our team will assist you with all queries.</p>
                             <div className="flex items-center">
                                 <Phone className="h-5 w-5 mr-2" />
-                                <a href="tel:+919876543210" className="text-white hover:underline">
-                                    +91XXXXXXXXXX
+                                <a href="tel:+1 (718) 360-4995" className="text-white hover:underline">
+                                    +1 (718) 360-4995
                                 </a>
                             </div>
                         </div>
@@ -58,11 +58,8 @@ const ContactSection = () => {
                                 <div className="flex items-start">
                                     <MapPin className="h-5 w-5 mr-2 mt-0.5 shrink-0" />
                                     <p>
-                                        Ardent & Vale Consultants Pvt. Ltd.,<br />
-                                        Level 2, Oval Building, Ilabs Centre, Plot No.18,
-
-                                        Shaikpet,<br />
-                                        Telangana, India - 500081
+                                        16th Floor Orbit, Plot No 30/C, Sy No 83/1, Hyderabad Knowledge City Raidurg, Serilingampally Mandal, Hyderabad,<br />
+                                        Telangana, India - 500032
                                     </p>
                                 </div>
                                 <div>

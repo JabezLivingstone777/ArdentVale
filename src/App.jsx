@@ -71,7 +71,7 @@ const PrivacyPolicyPage = () => {
       <p className="mb-4">
         <strong>Ardent and Vale Consultants Pvt. Ltd.</strong><br />
         Email: [contact@ardentvaleconsultants.com]<br />
-        Phone: [+91xxxxxxxxxx]<br />
+        Phone: [+1 (718) 360-4995]<br />
         Website: [https://ardent-and-vale-consultants-pvt-ltd.vercel.app/]
       </p>
     </div>

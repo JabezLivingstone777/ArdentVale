@@ -76,7 +76,7 @@ const ContactUsPage = () => {
               {
                 icon: <Phone className="w-8 h-8 text-slate-700" />,
                 title: "Phone Number",
-                content: "+91-XXXXXXXXXX",
+                content: "+1 (718) 360-4995",
               },
               {
                 icon: <Mail className="w-8 h-8 text-slate-700" />,
@@ -115,9 +115,7 @@ const ContactUsPage = () => {
             <div className="flex items-center justify-center mb-4">
               <MapPin className="w-10 h-10 text-slate-700" />
             </div>
-            <p className="font-semibold">Level 2, Oval Building, Ilabs Centre, Plot No.18,</p>
-            <p>Shaikpet, Telangana, 500081, India</p>
-            <p className="mt-2">Registered under ROC Hyderabad</p>
+            <p className="font-semibold">16th Floor Orbit, Plot No 30/C, Sy No 83/1, Hyderabad Knowledge City Raidurg, Serilingampally Mandal, Hyderabad,</p>
           </div>
         </div>
       </div>
@@ -126,7 +124,7 @@ const ContactUsPage = () => {
       <div className="px-4 max-w-5xl mx-auto mb-16">
         <iframe
           title="Company Location"
-          src="https://www.google.com/maps?q=Level%202,%20Oval%20Building,%20Ilabs%20Centre,%20Plot%20No.18,%20Shaikpet,%20Telangana,%20500081,%20India&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.523415337262!2d78.37419067493587!3d17.434644583460557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93cfd19ae321%3A0x20f3cd74ba70af5d!2sOrbit%20by%20Auro%20Realty%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1770303177001!5m2!1sen!2sin"
           className="w-full h-80 rounded-lg shadow-lg"
           allowFullScreen
           loading="lazy"

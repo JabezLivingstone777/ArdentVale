@@ -204,7 +204,7 @@ const AboutUsPage = () => {
                         {[{
                             icon: <Phone className="text-slate-700" />,
                             label: "Phone",
-                            value: "+91-XXXXXXXXXX"
+                            value: "+1 (718) 360-4995"
                         }, {
                             icon: <Mail className="text-slate-700" />,
                             label: "Email",

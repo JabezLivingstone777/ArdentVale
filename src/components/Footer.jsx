@@ -52,10 +52,10 @@ const Footer = () => {
                             Find Us and Say HAI
                         </h3>
                         <div className="flex space-x-4 mt-2">
-                            <a href="https://www.facebook.com/people/APTIT-Professional-Service/100066877321032/#" className="hover:text-blue-500"><Facebook className="w-6 h-6" /></a>
-                            <a href="https://x.com/APTITServices" className="hover:text-blue-400"><Twitter className="w-6 h-6" /></a>
-                            <a href="https://www.instagram.com/aptitps/" className="hover:text-pink-500"><Instagram className="w-6 h-6" /></a>
-                            <a href="https://www.linkedin.com/company/aptit-professional-services-usa/" className="hover:text-blue-600"><Linkedin className="w-6 h-6" /></a>
+                            <a href="#" className="hover:text-blue-500"><Facebook className="w-6 h-6" /></a>
+                            <a href="#" className="hover:text-blue-400"><Twitter className="w-6 h-6" /></a>
+                            <a href="https://www.instagram.com/ardentvaleconsultants?igsh=Z201YTlwbmZ1MTZp" className="hover:text-pink-500"><Instagram className="w-6 h-6" /></a>
+                            <a href="https://www.linkedin.com/in/ardent-and-vale-consultants-a13bab3ab" className="hover:text-blue-600"><Linkedin className="w-6 h-6" /></a>
                             {/* <a href="#" className="hover:text-red-500"><Globe className="w-6 h-6" /></a> */}
                         </div>
                     </div>

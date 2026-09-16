@@ -212,7 +212,7 @@ const AboutUsPage = () => {
                         }, {
                             icon: <MapPin className="text-slate-700" />,
                             label: "Headquarters",
-                            value: "Shaikpet, Telangana, 500081"
+                            value: "16th Floor Orbit, Raidurg, Hyderabad-500032"
                         }].map((item, i) => (
                             <div key={i} className="flex gap-4 items-start bg-white border rounded-lg p-6 shadow-sm hover:shadow-md transition">
                                 <div className="p-3 bg-gray-100 rounded-md">{item.icon}</div>

@@ -1,19 +1,19 @@
-import React, { useState, useRef } from "react";
-import emailjs from "emailjs-com";
-import { Phone, Mail, Clock, MapPin, Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import React, { useState } from "react";
+import { Phone, Mail, Clock, MapPin, MessageCircle, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 const ContactUsPage = () => {
-  const formRef = useRef();
-
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     subject: "",
     message: "",
   });
 
-  const [statusMessage, setStatusMessage] = useState("");
-  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState({
+    submitting: false,
+    succeeded: false,
+    error: null,
+  });
 
   const handleInputChange = (e) => {
     setFormData({
@@ -22,29 +22,41 @@ const ContactUsPage = () => {
     });
   };
 
-  // ✅ Email Send Handler
-  const handleSubmit = (e) => {
+  // ✅ Formspree Submission Handler
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSending(true);
+    setStatus({ submitting: true, succeeded: false, error: null });
 
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",      // ← Replace
-        "YOUR_TEMPLATE_ID",     // ← Replace
-        formRef.current,
-        "YOUR_PUBLIC_KEY"       // ← Replace
-      )
-      .then(
-        () => {
-          setStatusMessage("✅ Message sent successfully!");
-          setSending(false);
-          formRef.current.reset();
+    try {
+      const response = await fetch("https://formspree.io/f/xdablqnz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        () => {
-          setStatusMessage("❌ Something went wrong. Try again!");
-          setSending(false);
-        }
-      );
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({ submitting: false, succeeded: true, error: null });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        const data = await response.json();
+        const errorMessage = data?.errors?.map((err) => err.message).join(", ") || "Failed to submit form. Please try again.";
+        setStatus({ submitting: false, succeeded: false, error: errorMessage });
+      }
+    } catch (err) {
+      setStatus({
+        submitting: false,
+        succeeded: false,
+        error: "Network error occurred. Please check your connection and try again.",
+      });
+    }
   };
 
   return (
@@ -139,60 +151,120 @@ const ContactUsPage = () => {
             <p className="text-gray-600">Send us a message and we’ll get back to you shortly.</p>
           </div>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8">
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Your full name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800"
-                required
-              />
-            </div>
+          <div className="max-w-3xl mx-auto">
+            {status.succeeded ? (
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center shadow-sm animate-fadeIn">
+                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 className="w-10 h-10" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+                <p className="text-gray-600 mb-6">
+                  Your message has been successfully sent. We appreciate you reaching out and will get back to you shortly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setStatus({ submitting: false, succeeded: false, error: null })}
+                  className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2.5 rounded-lg font-medium transition cursor-pointer"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
+                {status.error && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg flex items-center gap-3 text-sm">
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <span>{status.error}</span>
+                  </div>
+                )}
 
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              className="w-full px-4 py-3 mb-6 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800"
-              required
-            />
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your full name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800 text-gray-900"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800 text-gray-900"
+                      required
+                    />
+                  </div>
+                </div>
 
-            <textarea
-              name="message"
-              placeholder="Message"
-              rows="6"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800 mb-6"
-              required
-            />
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Subject <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800 text-gray-900"
+                    required
+                  />
+                </div>
 
-            {statusMessage && (
-              <p className="text-center mb-4 text-sm text-slate-700">{statusMessage}</p>
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800 text-gray-900 resize-none"
+                    required
+                  />
+                </div>
+
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    disabled={status.submitting}
+                    className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md font-semibold transition-colors flex items-center justify-center gap-2 mx-auto disabled:opacity-70 cursor-pointer shadow"
+                  >
+                    {status.submitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
+                  </button>
+                </div>
+              </form>
             )}
-
-            <div className="text-center">
-              <button
-                type="submit"
-                className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md font-semibold transition-colors"
-              >
-                {sending ? "Sending..." : "Submit"}
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
 
       {/* Scroll to Top */}
       <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-slate-900 hover:bg-slate-600 text-white rounded-lg shadow-lg flex items-center justify-center transition-colors z-50"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-8 right-8 w-12 h-12 bg-slate-900 hover:bg-slate-600 text-white rounded-lg shadow-lg flex items-center justify-center transition-colors z-50 cursor-pointer"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />

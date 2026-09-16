@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import GhostFibers from "./GhostFibers";
 import { motion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const HeroSection1 = () => {
   return (
@@ -43,23 +44,23 @@ const HeroSection1 = () => {
       </div>
 
       {/* Subtle radial center glow behind text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-gradient-to-r from-blue-600/20 via-indigo-500/25 to-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] sm:h-[450px] bg-gradient-to-r from-blue-600/20 via-indigo-500/25 to-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
 
-      {/* 🔹 Hero Content matching reference layout */}
+      {/* 🔹 Hero Content based on Ardent & Vale Consultants */}
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center px-4 sm:px-6">
         
-        {/* Top Pill Badge: NEW Creative Components */}
+        {/* Top Pill Badge: NEW SaaS & Digital Solutions */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#181534]/80 backdrop-blur-xl border border-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.3)] mb-8 sm:mb-10 hover:border-white/30 transition-all cursor-pointer group"
+          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#181534]/80 backdrop-blur-xl border border-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.3)] mb-6 sm:mb-8 hover:border-white/30 transition-all cursor-pointer group"
         >
           <span className="px-2.5 py-0.5 rounded-full bg-white text-slate-950 font-extrabold text-[11px] tracking-wider uppercase shadow-sm">
             NEW
           </span>
-          <span className="text-slate-300 group-hover:text-white font-medium text-xs sm:text-sm tracking-tight transition-colors">
-            Creative Components
+          <span className="text-slate-300 group-hover:text-white font-medium text-xs sm:text-sm tracking-tight transition-colors flex items-center gap-1">
+            Enterprise SaaS & IT Consulting Solutions
           </span>
         </motion.div>
 
@@ -68,12 +69,25 @@ const HeroSection1 = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.12] mb-10 drop-shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+          className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white max-w-5xl mx-auto leading-[1.12] mb-6 drop-shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
         >
-          Light woven from the quiet parts of the spectrum.
+          Architecting The Digital Change.{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-indigo-200 to-purple-300">
+            Engineered For Scale.
+          </span>
         </motion.h1>
 
-        {/* Dual Pill CTA Buttons: Get started + Learn more */}
+        {/* Subtitle / Company Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="text-slate-300/90 text-sm sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-10 drop-shadow-sm font-normal"
+        >
+          At Ardent & Vale Consultants, we empower organizations with cutting-edge software engineering, intelligent SaaS platforms, and future-ready digital transformation.
+        </motion.p>
+
+        {/* Dual Pill CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -82,14 +96,14 @@ const HeroSection1 = () => {
         >
           <Link
             to="/saas-products"
-            className="w-full sm:w-auto min-w-[150px] px-8 py-3.5 rounded-full bg-white text-slate-950 font-bold text-sm sm:text-base hover:bg-slate-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-xl"
+            className="w-full sm:w-auto min-w-[160px] px-8 py-3.5 rounded-full bg-white text-slate-950 font-bold text-sm sm:text-base hover:bg-slate-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-xl"
           >
-            Get started
+            Explore SaaS Products
           </Link>
 
           <Link
             to="/about"
-            className="w-full sm:w-auto min-w-[150px] px-8 py-3.5 rounded-full bg-[#24214f]/70 hover:bg-[#2f2b66] text-[#b8b3f8] hover:text-white border border-indigo-400/25 hover:border-indigo-400/50 font-semibold text-sm sm:text-base backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg"
+            className="w-full sm:w-auto min-w-[160px] px-8 py-3.5 rounded-full bg-[#24214f]/70 hover:bg-[#2f2b66] text-[#b8b3f8] hover:text-white border border-indigo-400/25 hover:border-indigo-400/50 font-semibold text-sm sm:text-base backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg"
           >
             Learn more
           </Link>

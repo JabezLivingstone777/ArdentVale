@@ -76,12 +76,12 @@ const ContactUsPage = () => {
               {
                 icon: <Phone className="w-8 h-8 text-slate-700" />,
                 title: "Phone Number",
-                content: "+1 (718) 360-4995",
+                content: "+91 7207837711",
               },
               {
                 icon: <Mail className="w-8 h-8 text-slate-700" />,
                 title: "Email",
-                content: "contact@ardentvaleconsultants.com",
+                content: "info@ardentval.com",
               },
               {
                 icon: <Clock className="w-8 h-8 text-slate-700" />,

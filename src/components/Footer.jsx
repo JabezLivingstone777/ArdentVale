@@ -34,15 +34,15 @@ const Footer = () => {
                         <p className="text-sm leading-relaxed">
                             <span className="font-medium text-2xl">Ardent and Vale Consultants Pvt Ltd</span>
                             <br />
-                                        16th Floor Orbit, Plot No 30/C, Sy No 83/1, Hyderabad Knowledge City Raidurg, Serilingampally Mandal, Hyderabad,<br />
-                                        Telangana, India - 500032
+                            16th Floor Orbit, Plot No 30/C, Sy No 83/1, Hyderabad Knowledge City Raidurg, Serilingampally Mandal, Hyderabad,<br />
+                            Telangana, India - 500032
                         </p>
                         <div className="mt-4 space-y-2 text-sm">
                             <p className="flex items-center">
-                                <Phone className="w-4 h-4 mr-2" /> +1 (718) 360-4995
+                                <Phone className="w-4 h-4 mr-2" /> +91 7207837711
                             </p>
                             <p className="flex items-center">
-                                <Mail className="w-4 h-4 mr-2" /> contact@ardentvaleconsultants.com
+                                <Mail className="w-4 h-4 mr-2" /> info@ardentval.com
                             </p>
                         </div>
                     </div>

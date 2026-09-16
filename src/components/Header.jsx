@@ -18,15 +18,15 @@ const Header = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <div className="flex items-center space-x-0.5">
-            
-            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <img
-                src={avcplLogo}
-                alt="AVCPL Logo"
-                className="h-12 w-auto object-contain"
-                style={{ maxWidth: "160px" }}
-              />
-              </Link>  
+
+              <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                <img
+                  src={avcplLogo}
+                  alt="AVCPL Logo"
+                  className="h-12 w-auto object-contain"
+                  style={{ maxWidth: "160px" }}
+                />
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -124,13 +124,13 @@ const Header = () => {
               <div className="flex items-center space-x-2 text-slate-900">
                 <Phone className="w-4 h-4 " />
                 <a href="tel:+17183604995" className="hover:text-blue-800 transition-colors">
-                   <span className="text-sm font-bold">+1 (718) 360-4995</span>
-                  </a>
+                  <span className="text-sm font-bold">+91 7207837711</span>
+                </a>
               </div>
               <button className="ml-6 bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-md text-sm flex items-center space-x-2 transition-colors font-bold text-white">
                 <Mail className="w-4 h-4" />
                 <span>
-                  <a href="mailto:contact@ardentvaleconsultants.com">Mail Us</a>
+                  <a href="mailto:info@ardentval.com">Mail Us</a>
                 </span>
               </button>
             </div>
@@ -233,13 +233,13 @@ const Header = () => {
 
                   <div className="flex items-center space-x-2 text-slate-900 pt-2">
                     <Phone className="w-4 h-4" />
-                   <a href="tel:+17183604995" className="hover:text-blue-800 transition-colors">
-                   <span className="text-sm font-bold">+1 (718) 360-4995</span>
-                  </a>
+                    <a href="tel:+17183604995" className="hover:text-blue-800 transition-colors">
+                      <span className="text-sm font-bold">+91 7207837711</span>
+                    </a>
                     <button className="ml-6 bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-md text-sm flex items-center space-x-2 transition-colors font-bold text-white">
                       <Mail className="w-4 h-4" />
                       <span>
-                        <a href="mailto:contact@ardentvaleconsultants.com">Mail Us</a>
+                        <a href="mailto:info@ardentval.com">Mail Us</a>
                       </span>
                     </button>
                   </div>

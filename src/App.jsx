@@ -28,27 +28,27 @@ const PrivacyPolicyPage = () => {
       <p className="mb-4"><strong>Last Updated:</strong> [30-10-2025]</p>
 
       <p className="mb-4">
-        Ardent and Vale Consultants Pvt. Ltd. (“we”, “our”, “us”) is committed to protecting your privacy. 
-        This Privacy Policy explains how we collect, use, and safeguard your information when you visit 
+        Ardent and Vale Consultants Pvt. Ltd. (“we”, “our”, “us”) is committed to protecting your privacy.
+        This Privacy Policy explains how we collect, use, and safeguard your information when you visit
         our website or use our services.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">1. Information We Collect</h2>
       <p className="mb-4">
-        We may collect personal information such as your name, email address, phone number, company details, 
-        and any information submitted through forms. We may also collect non-personal data such as IP address, 
+        We may collect personal information such as your name, email address, phone number, company details,
+        and any information submitted through forms. We may also collect non-personal data such as IP address,
         browser information, and website usage data.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">2. How We Use Your Information</h2>
       <p className="mb-4">
-        We may use your information to provide services, respond to inquiries, send updates, improve our 
+        We may use your information to provide services, respond to inquiries, send updates, improve our
         website, and ensure security. We do not sell your personal information to third parties.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">3. Sharing of Information</h2>
       <p className="mb-4">
-        We may share information with trusted third-party service providers who assist in business operations, 
+        We may share information with trusted third-party service providers who assist in business operations,
         or if required by law or legal obligation.
       </p>
 
@@ -70,8 +70,8 @@ const PrivacyPolicyPage = () => {
       <h2 className="text-2xl font-semibold mt-6 mb-2">7. Contact Us</h2>
       <p className="mb-4">
         <strong>Ardent and Vale Consultants Pvt. Ltd.</strong><br />
-        Email: [contact@ardentvaleconsultants.com]<br />
-        Phone: [+1 (718) 360-4995]<br />
+        Email: [info@ardentval.com]<br />
+        Phone: [+91 7207837711]<br />
         Website: [https://ardent-and-vale-consultants-pvt-ltd.vercel.app/]
       </p>
     </div>

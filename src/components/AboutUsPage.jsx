@@ -204,11 +204,11 @@ const AboutUsPage = () => {
                         {[{
                             icon: <Phone className="text-slate-700" />,
                             label: "Phone",
-                            value: "+1 (718) 360-4995"
+                            value: "+91 7207837711"
                         }, {
                             icon: <Mail className="text-slate-700" />,
                             label: "Email",
-                            value: "contact@ardentvaleconsultants.com"
+                            value: "info@ardentval.com"
                         }, {
                             icon: <MapPin className="text-slate-700" />,
                             label: "Headquarters",

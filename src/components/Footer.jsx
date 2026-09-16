@@ -22,7 +22,7 @@ const Footer = () => {
                         <ul className="space-y-3 text-sm">
                             <li><Link to="/mobile" className="hover:text-orange-400 transition-colors">→ Mobile App Development</Link></li>
                             <li><Link to="/webdesign" className="hover:text-orange-400 transition-colors">→ Web Design and Development</Link></li>
-                            <li><Link to="/staff-augmentation" className="hover:text-orange-400 transition-colors">→ Staff Augmentation</Link></li>
+                            <li><Link to="/saas-products" className="hover:text-orange-400 transition-colors">→ SaaS Products</Link></li>
                             <li><Link to="/about" className="hover:text-orange-400 transition-colors">→ About Us</Link></li>
                             <li><Link to="/contact-us" className="hover:text-orange-400 transition-colors">→ Contact Us</Link></li>
                         </ul>
@@ -54,8 +54,8 @@ const Footer = () => {
                         <div className="flex space-x-4 mt-2">
                             <a href="#" className="hover:text-blue-500"><Facebook className="w-6 h-6" /></a>
                             <a href="#" className="hover:text-blue-400"><Twitter className="w-6 h-6" /></a>
-                            <a href="https://www.instagram.com/ardentvaleconsultants?igsh=Z201YTlwbmZ1MTZp" className="hover:text-pink-500"><Instagram className="w-6 h-6" /></a>
-                            <a href="https://www.linkedin.com/in/ardent-and-vale-consultants-a13bab3ab" className="hover:text-blue-600"><Linkedin className="w-6 h-6" /></a>
+                            <a href="https://www.instagram.com/ardentvaleconsultants?stkn=Z201YTlwbmZ1MTZp" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500"><Instagram className="w-6 h-6" /></a>
+                            <a href="https://www.linkedin.com/company/ardent-and-vale-consultants/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600"><Linkedin className="w-6 h-6" /></a>
                             {/* <a href="#" className="hover:text-red-500"><Globe className="w-6 h-6" /></a> */}
                         </div>
                     </div>

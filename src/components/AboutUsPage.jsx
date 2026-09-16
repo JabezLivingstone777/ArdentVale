@@ -126,11 +126,12 @@ const AboutUsPage = () => {
                             <img src={staffManagementImg} className="w-8 h-8" />
                         </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-4">Staff Augmentation</h3>
+                    <h3 className="text-xl font-bold mb-4">SaaS Products</h3>
                     <p className="text-gray-600 group-hover:text-white leading-relaxed mb-6">
-                        Our recruitment arm keeps evolving. At Ardent and Vale Consultants Pvt Ltd, we don't just fill roles. We align with your vision of business transformation.                    </p>
-                    <Link to="/staff-augmentation">
-                        <button className="bg-slate-900 hover:bg-slate-600 text-white px-6 py-2 rounded-lg transition">
+                        Explore our enterprise SaaS products: SynqDoc™ for AI conversational & document intelligence (synqdoc.com), and HRMS™ for automated HR, payroll, and workforce operations.
+                    </p>
+                    <Link to="/saas-products">
+                        <button className="bg-slate-900 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition">
                             Read More
                         </button>
                     </Link>
@@ -152,10 +153,10 @@ const AboutUsPage = () => {
                         desc: "Are you a business establishment who wants recruits on contract or contract-to-hire basis to realize your short-term or specialized work requirements? We can delegate the right candidate to suit your project needs.",
                         link: "/webdesign"
                     }, {
-                        title: "Clients",
+                        title: "SaaS & Enterprise",
                         img: webDevelopmentImg,
-                        desc: "Are you an organization looking for manpower with the perfect blend of IT experience, knowledge and commitment to your business goals and ideals? Allow us to help you fulfill your needs.",
-                        link: "/staff-augmentation"
+                        desc: "Are you an organization looking to modernize workflows and infrastructure with cutting-edge SaaS platforms and cloud architectures? Discover our solutions.",
+                        link: "/saas-products"
                     }].map((card, i) => (
                         <div key={i} className="bg-white p-8 shadow-lg rounded-lg hover:bg-slate-700 hover:text-white transition">
                             <div className="flex justify-center mb-6">

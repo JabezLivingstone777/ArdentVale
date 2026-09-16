@@ -26,10 +26,10 @@ const Services = () => {
                 <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
                     <h1 className="text-4xl font-bold text-white mb-4">Services</h1>
                     <div className="flex items-center justify-center text-white">
-                         <Link to="/" className="hover:text-white transition">
-                        <span className="hover:text-slate-400 transition-colors cursor-pointer">
-                            Home
-                        </span>
+                        <Link to="/" className="hover:text-white transition">
+                            <span className="hover:text-slate-400 transition-colors cursor-pointer">
+                                Home
+                            </span>
                         </Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-400" />
                         <span className="text-white">Services</span>
@@ -104,21 +104,21 @@ const Services = () => {
                             </button>
                         </div>
 
-                        {/* Staff Augmentation */}
+                        {/* SaaS Products */}
                         <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow group hover:bg-slate-700 hover:text-white">
                             <div className="flex justify-center mb-6">
                                 <div className="w-16 h-16 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-white">
-                                    <img src={staffManagementImg} alt="Staff Augmentation" className="w-8 h-8" />
+                                    <img src={staffManagementImg} alt="SaaS Products" className="w-8 h-8" />
                                 </div>
                             </div>
                             <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-white">
-                                Staff Augmentation
+                                SaaS Products
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-white">
-                                We provide elite, vetted developers on-demand, enabling you to rapidly scale teams, modernize systems, and accelerate transformation.
+                                Accelerate your enterprise with our flagship SaaS products: SynqDoc™ for AI conversational & document intelligence, and HRMS™ for automated HR & payroll management.
                             </p>
-                            <button className="bg-slate-900 hover:bg-slate-600 text-white px-6 py-2 rounded-lg transition-colors">
-                                <Link to="/staff-augmentation">Read More</Link>
+                            <button className="bg-slate-900 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors">
+                                <Link to="/saas-products">Read More</Link>
                             </button>
                         </div>
 
@@ -137,10 +137,10 @@ const Services = () => {
                                 desc: "Permanent & contract staffing with onboarding support.Interested in being a part of a collaborative, progressive, and dynamic work culture? Join our internal team and work alongside industry experts to deliver top-class staffing and workforce solutions to global clients.",
                                 link: "/webdesign"
                             }, {
-                                title: "Clients",
+                                title: "SaaS & Enterprise",
                                 img: webDevelopmentImg,
-                                desc: "Trusted supply of skilled professionals .We support organizations in finding highly skilled, reliable, and goal-driven professionals who match business expectations and culture. Our tailored recruitment approach ensures timely talent acquisition with maximum efficiency.",
-                                link: "/staff-augmentation"
+                                desc: "Intelligent SaaS products and cloud architectures. We empower organizations with scalable AI automation and infrastructure visibility to drive peak operational performance.",
+                                link: "/saas-products"
                             }].map((card, i) => (
                                 <div key={i} className="bg-white p-8 shadow-xl rounded-lg hover:bg-slate-700 hover:text-white transition">
                                     <div className="flex justify-center mb-6">

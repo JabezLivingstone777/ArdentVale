@@ -86,11 +86,11 @@ const Header = () => {
                         Web Design & Development
                       </Link>
                       <Link
-                        to="/staff-augmentation"
-                        className="block px-4 py-2 font-bold text-slate-900 hover:bg-gray-100 hover:text-blue-800 transition-colors"
+                        to="/saas-products"
+                        className="block px-4 py-2 font-bold text-slate-900 hover:bg-gray-100 hover:text-orange-600 transition-colors"
                         onClick={() => setIsServicesOpen(false)}
                       >
-                        Staff Augmentation
+                        SaaS Products
                       </Link>
                     </motion.div>
                   )}
@@ -199,11 +199,11 @@ const Header = () => {
                       Web Design & Development
                     </Link>
                     <Link
-                      to="/staff-augmentation"
-                      className="font-bold text-slate-900 text-lg hover:text-blue-800 transition-colors"
+                      to="/saas-products"
+                      className="font-bold text-slate-900 text-lg hover:text-orange-600 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Staff Augmentation
+                      SaaS Products
                     </Link>
                   </div>
 

@@ -17,7 +17,7 @@ import Services from "./components/Services";
 import CareersPage from "./components/CareersPage";
 import MobileAppDevelopmentPage from "./components/MobileAppDevelopmentPage";
 import WebDesignPage from "./components/WebDesignPage";
-import StaffAugmentationPage from "./components/StaffAugmentationPage";
+import SaasProductsPage from "./components/SaasProductsPage";
 import PortfolioPage from "./components/PortfolioPage";
 
 const PrivacyPolicyPage = () => {
@@ -114,7 +114,8 @@ function App() {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/mobile" element={<MobileAppDevelopmentPage />} />
           <Route path="/webdesign" element={<WebDesignPage />} />
-          <Route path="/staff-augmentation" element={<StaffAugmentationPage />} />
+          <Route path="/saas-products" element={<SaasProductsPage />} />
+          <Route path="/staff-augmentation" element={<SaasProductsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
         </Routes>

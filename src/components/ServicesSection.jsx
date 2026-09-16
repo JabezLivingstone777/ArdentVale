@@ -25,11 +25,11 @@ const ServicesSection = () => {
       link: "/webdesign"
     },
     {
-      title: "Staff Augmentation",
-      description: "We provide elite, vetted developers on-demand, enabling you to rapidly scale teams, modernize systems, and accelerate transformation.",
+      title: "SaaS Products",
+      description: "Explore our enterprise SaaS suite featuring SynqDoc™ (AI Conversational & Smart Document Intelligence) and HRMS™ (Workforce & Payroll Suite).",
       image: staffAugImg3,
-      alt: "Staff Augmentation",
-      link: "/staff-augmentation",
+      alt: "SaaS Products",
+      link: "/saas-products",
     },
     {
       title: "Job Seeker",
@@ -43,14 +43,14 @@ const ServicesSection = () => {
       description: "Interested in being a part of a collaborative, progressive, and dynamic work culture? Join our internal team and work alongside industry experts to deliver top-class staffing and workforce solutions to global clients.",
       image: webDevImg,
       alt: "Employee",
-      link: "/webdesign"
+      link: "/webdesign",
     },
     {
-      title: "Client",
-      description: "We support organizations in finding highly skilled, reliable, and goal-driven professionals who match business expectations and culture. Our tailored recruitment approach ensures timely talent acquisition with maximum efficiency.",
+      title: "Enterprise Solutions",
+      description: "We empower organizations with robust digital transformation, custom SaaS architectures, and cloud modernization to maximize operational efficiency.",
       image: staffAugImg,
-      alt: "Client",
-      link: "/staff-augmentation",
+      alt: "Enterprise Solutions",
+      link: "/saas-products",
     }
   ];
 
@@ -80,12 +80,12 @@ const ServicesSection = () => {
                   {service.description}
                 </p>
                 <div className="mt-auto w-full flex justify-center">
-                   <Link to={service.link}>
-                  <button className="border-2 border-slate-900 text-white bg-slate-900 hover:bg-slate-700 hover:text-white px-8 py-3 rounded-md font-semibold transition-colors">
-                   
+                  <Link to={service.link}>
+                    <button className="border-2 border-slate-900 text-white bg-slate-900 hover:bg-slate-700 hover:text-white px-8 py-3 rounded-md font-semibold transition-colors">
+
                       More Info
-                    
-                  </button></Link>
+
+                    </button></Link>
                 </div>
               </div>
             ))}

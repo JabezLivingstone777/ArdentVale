@@ -130,27 +130,25 @@ const PortfolioPage = () => {
                             </button>
                         </div>
 
-                        {/* Staff Augmentation */}
+                        {/* SaaS Products */}
                         <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow group hover:bg-slate-700 hover:text-white">
                             <div className="flex justify-center mb-6">
                                 <div className="w-16 h-16 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-white">
                                     <img
                                         src={staffManagementImg}
-                                        alt="Staff Augmentation"
+                                        alt="SaaS Products"
                                         className="w-8 h-8"
                                     />
                                 </div>
                             </div>
                             <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-white">
-                                Staff Augmentation
+                                SaaS Products
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-white">
-                                We provide elite, vetted developers on-demand, enabling you to
-                                rapidly scale teams, modernize systems, and accelerate
-                                transformation.
+                                Next-gen SaaS product suite featuring SynqDoc™ (AI conversational & document automation) and HRMS™ (workforce & payroll intelligence).
                             </p>
-                            <button className="bg-slate-900 hover:bg-slate-600 text-white px-6 py-2 rounded-lg transition-colors">
-                                <Link to="/staff-augmentation">Read More</Link>
+                            <button className="bg-slate-900 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors">
+                                <Link to="/saas-products">Read More</Link>
                             </button>
                         </div>
                     </div>
@@ -189,7 +187,7 @@ const PortfolioPage = () => {
                         Let’s Transform Your Ideas Into Reality
                     </h2>
                     <p className="text-gray-600 mb-8 text-lg max-w-3xl mx-auto leading-relaxed">
-                       At Ardent and Vale Consultants, we help organizations navigate digital transformation with expert guidance and scalable solutions.
+                        At Ardent and Vale Consultants, we help organizations navigate digital transformation with expert guidance and scalable solutions.
                         Feel free to contact us for expert consultation and guidance tailored to your business needs.
                     </p>
                     <Link

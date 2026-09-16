@@ -52,8 +52,8 @@ const Footer = () => {
                             Find Us and Say HAI
                         </h3>
                         <div className="flex space-x-4 mt-2">
-                            <a href="#" className="hover:text-blue-500"><Facebook className="w-6 h-6" /></a>
-                            <a href="#" className="hover:text-blue-400"><Twitter className="w-6 h-6" /></a>
+                            {/* <a href="#" className="hover:text-blue-500"><Facebook className="w-6 h-6" /></a>
+                            <a href="#" className="hover:text-blue-400"><Twitter className="w-6 h-6" /></a> */}
                             <a href="https://www.instagram.com/ardentvaleconsultants?stkn=Z201YTlwbmZ1MTZp" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500"><Instagram className="w-6 h-6" /></a>
                             <a href="https://www.linkedin.com/company/ardent-and-vale-consultants/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600"><Linkedin className="w-6 h-6" /></a>
                             {/* <a href="#" className="hover:text-red-500"><Globe className="w-6 h-6" /></a> */}

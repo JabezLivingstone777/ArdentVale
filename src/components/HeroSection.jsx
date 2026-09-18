@@ -25,8 +25,8 @@ const HeroSection = () => {
     {
       image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=60",
       title: "Enterprise SaaS Platforms & Cloud Solutions",
-      subtitle: "SynqDoc™ AI Intelligence & HRMS™ Workforce Suite",
-      description: "Empowering businesses worldwide with automated workflows, AI document intelligence, and modern cloud ecosystems.",
+      subtitle: "SynqDoc™ AI, HRMS™ Suite & ProTutors™ LMS",
+      description: "Empowering businesses worldwide with automated workflows, AI document intelligence, workforce management, and white-label LMS academy infrastructure.",
       button: "EXPLORE SAAS",
       link: "/saas-products",
     },

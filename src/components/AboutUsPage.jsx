@@ -127,7 +127,7 @@ const AboutUsPage = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-4">SaaS Products</h3>
                     <p className="text-gray-600 group-hover:text-white leading-relaxed mb-6">
-                        Explore our enterprise SaaS products: SynqDoc™ for AI conversational & document intelligence (synqdoc.com), and HRMS™ for automated HR, payroll, and workforce operations.
+                        Explore our enterprise SaaS suite: SynqDoc™ for AI document intelligence (synqdoc.com), HRMS™ for workforce & payroll (apt-hrm.vercel.app), and ProTutors™ for white-label online academies (protutors.cloud).
                     </p>
                     <Link to="/saas-products">
                         <button className="bg-slate-900 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition">
@@ -154,7 +154,7 @@ const AboutUsPage = () => {
                     }, {
                         title: "Cloud & AI SaaS Platforms",
                         img: staffManagementImg,
-                        desc: "Proprietary multi-tenant SaaS platforms featuring SynqDoc™ for AI document automation and HRMS™ for intelligent operational workflows.",
+                        desc: "Proprietary multi-tenant SaaS platforms featuring SynqDoc™ (AI Docs), HRMS™ (Workforce Ops), and ProTutors™ (White-Label LMS).",
                         link: "/saas-products"
                     }].map((card, i) => (
                         <div key={i} className="bg-white p-8 shadow-lg rounded-lg hover:bg-slate-700 hover:text-white transition">

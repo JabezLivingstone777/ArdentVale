@@ -120,7 +120,7 @@ const Services = () => {
                                     SaaS Products
                                 </h3>
                                 <p className="text-gray-600 mb-6 text-sm leading-relaxed group-hover:text-slate-300">
-                                    Accelerate your enterprise with our flagship SaaS products: SynqDoc™ for AI document intelligence, and HRMS™ for automated payroll.
+                                    Accelerate your enterprise with our flagship SaaS suite: SynqDoc™ for AI document intelligence, HRMS™ for payroll, and ProTutors™ for white-label academies.
                                 </p>
                             </div>
                             <Link

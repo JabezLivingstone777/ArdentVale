@@ -8,27 +8,28 @@ import appDevelopmentImg from "../assets/Techeminence/app-development.png";
 import webDevelopmentImg from "../assets/Techeminence/development.svg";
 import staffManagementImg from "../assets/Techeminence/staff-management.svg";
 
-// Client logos
-import logo1 from "../assets/Client-logos/Untitled design (1).png";
-import logo2 from "../assets/Client-logos/Untitled design (2).png";
-import logo3 from "../assets/Client-logos/Untitled design (3).png";
-import logo4 from "../assets/Client-logos/Untitled design (4).png";
-import logo5 from "../assets/Client-logos/Untitled design (5).png";
-import logo6 from "../assets/Client-logos/Untitled design (6).png";
-import logo7 from "../assets/Client-logos/Untitled design (7).png";
-import logo8 from "../assets/Client-logos/Untitled design (8).png";
-import logo9 from "../assets/Client-logos/Untitled design (9).png";
-import logo10 from "../assets/Client-logos/Untitled design (10).png";
-import logo11 from "../assets/Client-logos/Untitled design (11).png";
-import logo12 from "../assets/Client-logos/Untitled design (12).png";
-import logo13 from "../assets/Client-logos/Untitled design(13).png";
+// Client logos from /successclients
+const allLogos = [
+    { name: "Schengen Visa Itinerary", src: "/successclients/logo1.webp" },
+    { name: "Apvision", src: "/successclients/logo2.png" },
+    { name: "Nano Space", src: "/successclients/Logo3.png" },
+    { name: "Pyramid IT Solutions", src: "/successclients/logo4.png" },
+    { name: "Saffron Vacations", src: "/successclients/logo5.png" },
+    { name: "Pixel Media", src: "/successclients/logo6.png" },
+    { name: "Plan At", src: "/successclients/logo7.png" },
+    { name: "Quadrant Neotech", src: "/successclients/logo8.png" },
+    { name: "Aarna", src: "/successclients/logo9.png" },
+    { name: "Powerlifting Association", src: "/successclients/logo10.png" },
+    { name: "Venetia", src: "/successclients/logo12.jpg" },
+    { name: "Talent Sync", src: "/successclients/logo13.png" },
+    { name: "Dhruva Publications", src: "/successclients/logo14.png" },
+    { name: "e-lead", src: "/successclients/logo16.webp" },
+    { name: "Sastra Herbals", src: "/successclients/logo17.png" },
+    { name: "NP Pesto", src: "/successclients/logo18.webp" },
+    { name: "Busy Bees", src: "/successclients/logo19.png" },
+];
 
 const PortfolioPage = () => {
-    const allLogos = [
-        logo1, logo2, logo3, logo4, logo5, logo6,
-        logo7, logo8, logo9, logo10, logo11, logo12, logo13,
-    ];
-
     const [currentSet, setCurrentSet] = useState(0);
 
     useEffect(() => {
@@ -36,7 +37,7 @@ const PortfolioPage = () => {
             setCurrentSet((prev) => (prev + 1) % Math.ceil(allLogos.length / 6));
         }, 4000);
         return () => clearInterval(interval);
-    }, [allLogos.length]);
+    }, []);
 
     const startIndex = currentSet * 6;
     const visibleLogos = allLogos.slice(startIndex, startIndex + 6);
@@ -145,7 +146,7 @@ const PortfolioPage = () => {
                                 SaaS Products
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-white">
-                                Next-gen SaaS product suite featuring SynqDoc™ (AI conversational & document automation) and HRMS™ (workforce & payroll intelligence).
+                                Next-gen SaaS product suite featuring SynqDoc™ (AI document automation), HRMS™ (workforce & payroll), and ProTutors™ (white-label LMS).
                             </p>
                             <button className="bg-slate-900 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors">
                                 <Link to="/saas-products">Read More</Link>
@@ -198,14 +199,17 @@ const PortfolioPage = () => {
                         OUR CLIENTS
                     </h2>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-center transition-all duration-500">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-center transition-all duration-500">
                         {visibleLogos.map((logo, index) => (
                             <div key={index} className="flex justify-center">
-                                <img
-                                    src={logo}
-                                    alt={`Client ${index + 1}`}
-                                    className="h-20 w-auto object-contain transition-transform duration-500 hover:scale-105"
-                                />
+                                <div className="h-24 w-48 bg-white rounded-2xl border border-gray-200/80 shadow-xs flex items-center justify-center p-4 hover:shadow-md hover:border-orange-500/40 transition-all duration-300">
+                                    <img
+                                        src={logo.src}
+                                        alt={logo.name || `Client ${index + 1}`}
+                                        className="max-h-14 max-w-[140px] w-auto h-auto object-contain transition-transform duration-300 hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                </div>
                             </div>
                         ))}
                     </div>

@@ -16,7 +16,6 @@ const ServicesSection = () => {
       image: chatbotHeroImg,
       alt: "AI and Chatbot Development",
       link: "/chatbot-development",
-      highlight: true,
       badge: "AI Powered"
     },
     {
@@ -25,7 +24,6 @@ const ServicesSection = () => {
       image: servicesMobileAppImg,
       alt: "Mobile App Development",
       link: "/mobile",
-      highlight: false,
       badge: "iOS & Android"
     },
     {
@@ -34,16 +32,14 @@ const ServicesSection = () => {
       image: servicesWebDevImg,
       alt: "Web Design and Development",
       link: "/webdesign",
-      highlight: false,
       badge: "Full-Stack Web"
     },
     {
       title: "SaaS Products",
-      description: "Enterprise SaaS suite featuring SynqDoc™ (AI Conversational & Document Intelligence) and HRMS™ (Automated Workforce & Payroll Suite).",
+      description: "Enterprise SaaS suite featuring SynqDoc™ (AI Document Intelligence), HRMS™ (Workforce & Payroll), and ProTutors™ (White-Label LMS Platform).",
       image: servicesSaasProductsImg,
       alt: "SaaS Products Suite",
-      link: "/saas-products",
-      highlight: false,
+      link: "/our-products",
       badge: "Enterprise SaaS"
     },
     {
@@ -52,7 +48,6 @@ const ServicesSection = () => {
       image: servicesCrossPlatformImg,
       alt: "Cross-Platform Mobile Apps",
       link: "/mobile",
-      highlight: false,
       badge: "Flutter & React Native"
     },
     {
@@ -61,7 +56,6 @@ const ServicesSection = () => {
       image: servicesEnterpriseWebImg,
       alt: "Enterprise Web Applications",
       link: "/webdesign",
-      highlight: false,
       badge: "Cloud Architecture"
     },
   ];
@@ -87,26 +81,18 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`group flex flex-col h-full bg-white rounded-2xl overflow-hidden border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 ${
-                  service.highlight
-                    ? "border-orange-300 shadow-md shadow-orange-500/10"
-                    : "border-slate-200/90 shadow-sm"
-                }`}
+                className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-500/50 hover:-translate-y-1.5"
               >
                 {/* Image Showcase Container */}
                 <div className="relative overflow-hidden w-full h-56 bg-slate-950">
                   <img
                     src={service.image}
                     alt={service.alt}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
                   <div className="absolute top-3 right-3">
-                    <span className={`text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md shadow-sm ${
-                      service.highlight
-                        ? "bg-orange-600 text-white"
-                        : "bg-slate-900/80 text-white border border-white/20"
-                    }`}>
+                    <span className="text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md shadow-sm bg-slate-900/80 text-white border border-white/20 group-hover:bg-orange-600 group-hover:border-orange-500 transition-colors">
                       {service.badge}
                     </span>
                   </div>
@@ -127,14 +113,10 @@ const ServicesSection = () => {
                   <div className="pt-2">
                     <Link
                       to={service.link}
-                      className={`w-full py-3 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-center ${
-                        service.highlight
-                          ? "bg-orange-600 hover:bg-orange-500 text-white shadow-md shadow-orange-500/25"
-                          : "bg-slate-900 hover:bg-slate-800 text-white hover:shadow-md"
-                      }`}
+                      className="w-full py-3 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-center bg-slate-900 group-hover:bg-orange-600 text-white group-hover:shadow-md group-hover:shadow-orange-500/25"
                     >
-                      <span>{service.highlight ? "Explore AI Bots" : "Learn More"}</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <span>Learn More</span>
+                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </Link>

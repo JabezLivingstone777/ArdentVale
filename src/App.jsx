@@ -19,6 +19,7 @@ const CareersPage = lazy(() => import("./components/CareersPage"));
 const MobileAppDevelopmentPage = lazy(() => import("./components/MobileAppDevelopmentPage"));
 const WebDesignPage = lazy(() => import("./components/WebDesignPage"));
 const SaasProductsPage = lazy(() => import("./components/SaasProductsPage"));
+const OurProductsPage = lazy(() => import("./components/OurProductsPage"));
 const ChatbotDevelopmentPage = lazy(() => import("./components/ChatbotDevelopmentPage"));
 const PortfolioPage = lazy(() => import("./components/PortfolioPage"));
 
@@ -125,6 +126,8 @@ function App() {
             <Route path="/mobile" element={<MobileAppDevelopmentPage />} />
             <Route path="/webdesign" element={<WebDesignPage />} />
             <Route path="/saas-products" element={<SaasProductsPage />} />
+            <Route path="/our-products" element={<OurProductsPage />} />
+            <Route path="/products" element={<OurProductsPage />} />
             <Route path="/chatbot-development" element={<ChatbotDevelopmentPage />} />
             <Route path="/chatbot" element={<ChatbotDevelopmentPage />} />
             <Route path="/staff-augmentation" element={<Navigate to="/services" replace />} />

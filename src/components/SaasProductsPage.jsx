@@ -27,10 +27,14 @@ import {
   Server,
   X,
   Send,
+  GraduationCap,
+  Globe,
+  Video,
+  BookOpen,
 } from "lucide-react";
 
 const SaasProductsPage = () => {
-  const [activeProduct, setActiveProduct] = useState("synqdoc"); // 'synqdoc' | 'hrm'
+  const [activeProduct, setActiveProduct] = useState("synqdoc"); // 'synqdoc' | 'hrm' | 'protutors'
   const [openFaq, setOpenFaq] = useState(0);
   const [demoModalOpen, setDemoModalOpen] = useState(false);
   const [demoSubmitted, setDemoSubmitted] = useState(false);
@@ -149,7 +153,7 @@ const SaasProductsPage = () => {
     () => ({
       id: "hrm",
       name: "HRMS™ Suite",
-      websiteUrl: null,
+      websiteUrl: "https://apt-hrm.vercel.app/",
       tagline: "All-in-One Enterprise Human Resource Management & Workforce Intelligence Platform",
       badge: "Flagship HRMS & Payroll Suite",
       shortDesc:
@@ -245,7 +249,126 @@ const SaasProductsPage = () => {
     []
   );
 
-  const currentProduct = activeProduct === "synqdoc" ? synqdocData : hrmData;
+  // Product 3: ProTutors LMS
+  const protutorsData = useMemo(
+    () => ({
+      id: "protutors",
+      name: "ProTutors™",
+      websiteUrl: "https://www.protutors.cloud/",
+      tagline: "The Modern Multi-Tenant Platform & White-Label LMS for Professional Tutors, Creators & Online Academies",
+      badge: "Flagship White-Label LMS & EdTech Suite",
+      shortDesc:
+        "Empower your education business with ProTutors. Sell courses, launch live cohort workshops, stream 4K video with zero lag, build vibrant learner communities, and collect direct bank payments with 0% platform commission under your own brand and custom domain.",
+      heroStats: [
+        { label: "Platform Commission", value: "0%", subtitle: "Keep 100% course revenue" },
+        { label: "Student Capacity", value: "Unlimited", subtitle: "Zero tier restrictions" },
+        { label: "Video Delivery", value: "4K Edge", subtitle: "Low-latency global HLS" },
+        { label: "Domain Setup", value: "< 5 Mins", subtitle: "Automated Edge SSL" },
+      ],
+      coreFeatures: [
+        {
+          icon: <GraduationCap className="w-6 h-6 text-orange-500 group-hover:text-white transition-colors duration-300" />,
+          title: "100% White-Labeled Academy",
+          desc: "Your colors, logo, typography, and custom domain (academy.yourbrand.com). Zero third-party platform watermarks or branding shown to students.",
+        },
+        {
+          icon: <Globe className="w-6 h-6 text-orange-500 group-hover:text-white transition-colors duration-300" />,
+          title: "Instant Custom Domains & Edge SSL",
+          desc: "Seamless CNAME routing with automated Let's Encrypt Wildcard SSL certificates provisioned and renewed automatically at the global edge.",
+        },
+        {
+          icon: <CreditCard className="w-6 h-6 text-orange-500 group-hover:text-white transition-colors duration-300" />,
+          title: "Direct Gateway Payouts (0% Cut)",
+          desc: "Connect your Razorpay credentials directly. Instant settlement into your bank account via UPI, NetBanking, credit/debit cards, and EMIs.",
+        },
+        {
+          icon: <Video className="w-6 h-6 text-orange-500 group-hover:text-white transition-colors duration-300" />,
+          title: "4K Video Streaming & Live Cohorts",
+          desc: "Ultra-fast global edge video CDN with adaptive HLS transcoding, copy protection, live interactive workshops, and real-time student chats.",
+        },
+        {
+          icon: <Users className="w-6 h-6 text-orange-500 group-hover:text-white transition-colors duration-300" />,
+          title: "Interactive Community Feeds",
+          desc: "Engage students beyond video lessons. Publish announcements, facilitate rich discussions, host Q&As, and celebrate learner wins.",
+        },
+        {
+          icon: <ShieldCheck className="w-6 h-6 text-orange-500 group-hover:text-white transition-colors duration-300" />,
+          title: "Enterprise Multi-Tenant Isolation",
+          desc: "PostgreSQL row-level tenant security, encrypted API credentials at rest, JWT token rotation, and robust DDoS protection.",
+        },
+      ],
+      mockupMetrics: {
+        activePipelines: "8,400+ Students",
+        automationHealth: "0% Platform Fee",
+        tasksHandled: "₹14.2M Transacted",
+        avgResponseTime: "18ms Edge Latency",
+      },
+      mockupSteps: [
+        { title: "Custom Domain DNS & Edge SSL Provisioning", status: "Active", time: "Just now", badge: "learn.brand.dev" },
+        { title: "4K Adaptive HLS Video Transcoder Pipeline", status: "Rendered", time: "2m ago", badge: "1080p 60fps" },
+        { title: "Direct Razorpay Payout to Institute Account", status: "Settled", time: "11m ago", badge: "0% Commission" },
+        { title: "Live Cohort Interactive Workshop Broadcast", status: "Streaming", time: "25m ago", badge: "184 Students Live" },
+      ],
+      useCases: [
+        "Independent Creator Academies & Video Courses",
+        "Live Cohort Bootcamps & Interactive Q&A Workshops",
+        "Corporate Employee Onboarding & Certification Hubs",
+        "Multi-Instructor Coaching Centers & EdTech Startups",
+      ],
+      plans: [
+        {
+          name: "Starter Academy",
+          price: "₹2,499",
+          period: "per month",
+          desc: "For independent educators building their first audience and course catalog.",
+          features: [
+            "Unlimited Registered Students",
+            "Up to 5 Active Courses & Digital Products",
+            "25 GB Asset Storage & 50 GB/mo Video Streaming",
+            "Direct Razorpay Gateway (0% Platform Fee)",
+            "Community Feeds & Student Discussions",
+          ],
+          popular: false,
+        },
+        {
+          name: "Pro Educator",
+          price: "₹5,999",
+          period: "per month",
+          desc: "For growing institutes seeking full custom branding, custom domains, and HD video streaming.",
+          features: [
+            "Everything in Starter Academy",
+            "Unlimited Courses & Interactive Workshops",
+            "Your Own Custom Domain (`learn.brand.com`) with Edge SSL",
+            "150 GB Asset Storage & 300 GB/mo 4K Streaming",
+            "100% White-Labeling (Zero Platform Watermarks)",
+            "Automated Quizzes & Branded Completion Certificates",
+          ],
+          popular: true,
+        },
+        {
+          name: "Enterprise Academy",
+          price: "₹14,999",
+          period: "per month",
+          desc: "Dedicated learning infrastructure for large organizations, coaching networks, and universities.",
+          features: [
+            "Everything in Pro Educator",
+            "Dedicated High-Capacity Video Bandwidth",
+            "Multi-Instructor Management & Custom RBAC",
+            "Single Sign-On (SSO) & REST API Access",
+            "Dedicated Account Manager & 99.9% Uptime SLA",
+          ],
+          popular: false,
+        },
+      ],
+    }),
+    []
+  );
+
+  const currentProduct = useMemo(() => {
+    if (activeProduct === "synqdoc") return synqdocData;
+    if (activeProduct === "hrm") return hrmData;
+    return protutorsData;
+  }, [activeProduct, synqdocData, hrmData, protutorsData]);
 
   const faqs = [
     {
@@ -257,16 +380,20 @@ const SaasProductsPage = () => {
       a: "HRMS features an automated rules engine tailored for both local and international tax frameworks, handling statutory deductions (PF, ESI, TDS, Gratuity), overtime calculations, bonus disbursements, and generating bank-ready salary files and automated digital payslips.",
     },
     {
-      q: "Can SynqDoc and HRMS integrate with our existing software stack?",
-      a: "Yes! Both platforms come with robust REST APIs, webhooks, and pre-built connectors. SynqDoc connects with Salesforce, SAP, Slack, and cloud storage, while HRMS connects with ERP systems, biometric hardware, accounting software, and SSO providers like Okta and Azure AD.",
+      q: "What is ProTutors and how does the 0% commission model work?",
+      a: "ProTutors (https://www.protutors.cloud/) is our multi-tenant white-label LMS and academy platform. Unlike course marketplaces that take 5-15% of your revenue, ProTutors connects directly to your Razorpay credentials with 0% platform commission, full custom domain mapping (`academy.yourbrand.com`), and edge SSL.",
     },
     {
-      q: "Is there a free trial or sandbox proof-of-concept available?",
-      a: "Yes. You can visit https://synqdoc.com/ directly to start using SynqDoc, and we offer a 14-day full-featured trial and live sandbox for HRMS so your team can test real workflows, sample documents, or employee payroll configurations before going live.",
+      q: "Can SynqDoc, HRMS, and ProTutors integrate with our existing software stack?",
+      a: "Yes! All three platforms provide REST APIs, webhooks, and pre-built connectors. SynqDoc connects with CRM/ERP tools and cloud drives, HRMS connects with biometric hardware and accounting software, and ProTutors connects with payment gateways and CDN video pipelines.",
+    },
+    {
+      q: "Are live sandbox trials available for all 3 products?",
+      a: "Yes. You can visit https://synqdoc.com/, explore https://apt-hrm.vercel.app/ for HRMS, and launch your academy directly at https://www.protutors.cloud/. We also offer tailored live sandbox setups for enterprise testing.",
     },
     {
       q: "What security and data privacy safeguards are in place?",
-      a: "Both platforms are hosted on SOC 2 Type II compliant cloud infrastructure, with AES-256 encryption at rest, TLS 1.3 encryption in transit, strict RBAC controls, and automated compliance with GDPR and data protection laws.",
+      a: "Our entire SaaS ecosystem is built with AES-256 encryption at rest, TLS 1.3 in transit, PostgreSQL row-level tenant isolation, automated edge SSL certificates, and role-based access controls (RBAC).",
     },
   ];
 
@@ -315,33 +442,46 @@ const SaasProductsPage = () => {
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
-            Supercharge operations with our dual flagship SaaS platforms:{" "}
-            <strong className="text-slate-900 font-semibold">SynqDoc™</strong> (Next-Gen AI Conversational & Document Automation) and{" "}
-            <strong className="text-slate-900 font-semibold">HRMS™</strong> (Comprehensive Human Resource Management Suite).
+            Supercharge operations with our dual flagship SaaS platforms and digital academy infrastructure:{" "}
+            <strong className="text-slate-900 font-semibold">SynqDoc™</strong> (AI Conversational & Document Automation),{" "}
+            <strong className="text-slate-900 font-semibold">HRMS™</strong> (Workforce & Payroll Suite), and{" "}
+            <strong className="text-slate-900 font-semibold">ProTutors™</strong> (White-Label LMS Platform).
           </p>
 
           {/* Hero CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-16 max-w-4xl mx-auto">
             {/* Direct Demo Link to synqdoc.com */}
             <a
               href="https://synqdoc.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold text-base shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold text-sm shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2"
             >
-              <Sparkles className="w-5 h-5 text-white" />
-              <span>Try SynqDoc Live Demo</span>
-              <ExternalLink className="w-4 h-4 text-white" />
+              <Sparkles className="w-4 h-4 text-white" />
+              <span>SynqDoc AI Demo</span>
+              <ExternalLink className="w-3.5 h-3.5 text-white" />
             </a>
 
             <a
-              href="https://synqdoc.com/"
+              href="https://apt-hrm.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-orange-50 text-slate-900 hover:text-orange-600 font-bold text-base border-2 border-slate-200 hover:border-orange-400 shadow-sm transition-all flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-orange-50 text-slate-900 hover:text-orange-600 font-bold text-sm border-2 border-slate-200 hover:border-orange-400 shadow-sm transition-all flex items-center justify-center space-x-2"
             >
-              <span>Visit SynqDoc.com</span>
-              <ExternalLink className="w-4 h-4 text-orange-500" />
+              <Users className="w-4 h-4 text-orange-500" />
+              <span>HRMS Live Demo</span>
+              <ExternalLink className="w-3.5 h-3.5 text-orange-500" />
+            </a>
+
+            <a
+              href="https://www.protutors.cloud/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-bold text-sm shadow-md transition-all hover:scale-105 flex items-center justify-center space-x-2"
+            >
+              <GraduationCap className="w-4 h-4 text-orange-400" />
+              <span>Launch ProTutors LMS</span>
+              <ExternalLink className="w-3.5 h-3.5 text-orange-400" />
             </a>
           </div>
 
@@ -351,53 +491,63 @@ const SaasProductsPage = () => {
               href="https://synqdoc.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-400 hover:shadow-md transition block"
+              className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-400 hover:shadow-md transition block group text-left"
             >
-              <div className="text-3xl font-extrabold text-orange-600 mb-1">SynqDoc</div>
-              <div className="text-sm font-bold text-slate-900">AI Document & Chat</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-orange-600 mb-1 group-hover:scale-105 transition-transform">SynqDoc</div>
+              <div className="text-xs sm:text-sm font-bold text-slate-900">AI Document & Chat</div>
               <div className="text-xs text-orange-600 font-semibold mt-1">synqdoc.com ↗</div>
             </a>
-            <div className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-300 hover:shadow-md transition">
-              <div className="text-3xl font-extrabold text-orange-600 mb-1">HRMS</div>
-              <div className="text-sm font-bold text-slate-900">Enterprise HRMS Suite</div>
-              <div className="text-xs text-slate-500 mt-1">Payroll & Attendance</div>
-            </div>
-            <div className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-300 hover:shadow-md transition">
-              <div className="text-3xl font-extrabold text-orange-600 mb-1">99.9%</div>
-              <div className="text-sm font-bold text-slate-900">Guaranteed SLA Uptime</div>
-              <div className="text-xs text-slate-500 mt-1">Enterprise Cloud Security</div>
-            </div>
-            <div className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-300 hover:shadow-md transition">
-              <div className="text-3xl font-extrabold text-orange-600 mb-1">SOC 2</div>
-              <div className="text-sm font-bold text-slate-900">Compliance & Privacy</div>
-              <div className="text-xs text-slate-500 mt-1">AES-256 Encryption</div>
+            <a
+              href="https://apt-hrm.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-400 hover:shadow-md transition block group text-left"
+            >
+              <div className="text-2xl sm:text-3xl font-extrabold text-orange-600 mb-1 group-hover:scale-105 transition-transform">HRMS</div>
+              <div className="text-xs sm:text-sm font-bold text-slate-900">Enterprise HR & Payroll</div>
+              <div className="text-xs text-orange-600 font-semibold mt-1">apt-hrm.vercel.app ↗</div>
+            </a>
+            <a
+              href="https://www.protutors.cloud/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-400 hover:shadow-md transition block group text-left"
+            >
+              <div className="text-2xl sm:text-3xl font-extrabold text-orange-600 mb-1 group-hover:scale-105 transition-transform">ProTutors</div>
+              <div className="text-xs sm:text-sm font-bold text-slate-900">White-Label LMS Suite</div>
+              <div className="text-xs text-orange-600 font-semibold mt-1">protutors.cloud ↗</div>
+            </a>
+            <div className="bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-orange-100 shadow-sm hover:border-orange-300 hover:shadow-md transition text-left">
+              <div className="text-2xl sm:text-3xl font-extrabold text-orange-600 mb-1">0% / SOC 2</div>
+              <div className="text-xs sm:text-sm font-bold text-slate-900">Platform Security SLA</div>
+              <div className="text-xs text-slate-500 mt-1">Edge SSL & Privacy</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= PRODUCT SELECTOR / DUAL SHOWCASE ================= */}
+      {/* ================= PRODUCT SELECTOR / 3-PRODUCT SHOWCASE ================= */}
       <section id="products-breakdown" className="py-16 bg-slate-50/70 border-b border-gray-200 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <span className="inline-block text-xs uppercase tracking-widest font-extrabold text-orange-600 bg-orange-100/80 px-3 py-1 rounded-full mb-3">
-              Explore Our 2 SaaS Products
+              Explore Our 3 Flagship SaaS Products
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Select a SaaS Product to Inspect
+              Select a SaaS Platform to Inspect
             </h2>
             <p className="text-slate-600 mt-2 max-w-2xl mx-auto">
-              Switch between our 2 platforms to view dedicated features, live metrics, and enterprise pricing.
+              Switch between our 3 enterprise platforms to view dedicated architectures, live metrics, and tiered editions.
             </p>
           </div>
 
-          {/* Interactive Dual Toggle Tabs */}
+          {/* Interactive 3-Product Toggle Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="bg-white p-2 rounded-2xl shadow-md border border-orange-200 inline-flex flex-col sm:flex-row gap-2 max-w-2xl w-full">
+            <div className="bg-white p-2 rounded-2xl shadow-md border border-orange-200 grid grid-cols-1 sm:grid-cols-3 gap-2 max-w-4xl w-full">
               {/* Product 1 Tab: SynqDoc */}
               <button
                 onClick={() => setActiveProduct("synqdoc")}
-                className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-xl font-bold transition-all text-left ${
+                className={`flex items-center space-x-3 px-5 py-4 rounded-xl font-bold transition-all text-left ${
                   activeProduct === "synqdoc"
                     ? "bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/30"
                     : "text-slate-700 hover:bg-orange-50/80 hover:text-orange-600"
@@ -410,14 +560,14 @@ const SaasProductsPage = () => {
                 >
                   <Bot className="w-5 h-5" />
                 </div>
-                <div>
-                  <div className="text-base font-extrabold">1. SynqDoc™ AI</div>
+                <div className="min-w-0">
+                  <div className="text-sm sm:text-base font-extrabold truncate">1. SynqDoc™ AI</div>
                   <div
-                    className={`text-xs ${
+                    className={`text-xs truncate ${
                       activeProduct === "synqdoc" ? "text-orange-100" : "text-slate-500"
                     }`}
                   >
-                    AI Conversational & Docs (synqdoc.com)
+                    AI Conversational & Docs
                   </div>
                 </div>
               </button>
@@ -425,7 +575,7 @@ const SaasProductsPage = () => {
               {/* Product 2 Tab: HRM Tool */}
               <button
                 onClick={() => setActiveProduct("hrm")}
-                className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-xl font-bold transition-all text-left ${
+                className={`flex items-center space-x-3 px-5 py-4 rounded-xl font-bold transition-all text-left ${
                   activeProduct === "hrm"
                     ? "bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/30"
                     : "text-slate-700 hover:bg-orange-50/80 hover:text-orange-600"
@@ -438,14 +588,42 @@ const SaasProductsPage = () => {
                 >
                   <Users className="w-5 h-5" />
                 </div>
-                <div>
-                  <div className="text-base font-extrabold">2. HRMS™ Suite</div>
+                <div className="min-w-0">
+                  <div className="text-sm sm:text-base font-extrabold truncate">2. HRMS™ Suite</div>
                   <div
-                    className={`text-xs ${
+                    className={`text-xs truncate ${
                       activeProduct === "hrm" ? "text-orange-100" : "text-slate-500"
                     }`}
                   >
-                    HRMS, Payroll & People Ops
+                    Payroll & Workforce Ops
+                  </div>
+                </div>
+              </button>
+
+              {/* Product 3 Tab: ProTutors LMS */}
+              <button
+                onClick={() => setActiveProduct("protutors")}
+                className={`flex items-center space-x-3 px-5 py-4 rounded-xl font-bold transition-all text-left ${
+                  activeProduct === "protutors"
+                    ? "bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/30"
+                    : "text-slate-700 hover:bg-orange-50/80 hover:text-orange-600"
+                }`}
+              >
+                <div
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
+                    activeProduct === "protutors" ? "bg-white/20 text-white" : "bg-orange-100 text-orange-600"
+                  }`}
+                >
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-sm sm:text-base font-extrabold truncate">3. ProTutors™ LMS</div>
+                  <div
+                    className={`text-xs truncate ${
+                      activeProduct === "protutors" ? "text-orange-100" : "text-slate-500"
+                    }`}
+                  >
+                    White-Label LMS & EdTech
                   </div>
                 </div>
               </button>
@@ -472,7 +650,13 @@ const SaasProductsPage = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-orange-600 transition"
                     >
-                      <span>synqdoc.com</span>
+                      <span>
+                        {currentProduct.id === "synqdoc"
+                          ? "synqdoc.com"
+                          : currentProduct.id === "hrm"
+                          ? "apt-hrm.vercel.app"
+                          : "protutors.cloud"}
+                      </span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   )}
@@ -577,7 +761,9 @@ const SaasProductsPage = () => {
                       <span className="text-xs text-slate-400 font-mono pl-2">
                         {currentProduct.id === "synqdoc"
                           ? "app.synqdoc.com/console"
-                          : "hrm.ardentvale.com/dashboard"}
+                          : currentProduct.id === "hrm"
+                          ? "apt-hrm.vercel.app"
+                          : "academy.protutors.cloud"}
                       </span>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -701,95 +887,123 @@ const SaasProductsPage = () => {
               Side-by-Side Comparison
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              SynqDoc™ vs HRMS™ Product Suite
+              SynqDoc™ vs HRMS™ vs ProTutors™
             </h2>
             <p className="text-slate-600 mt-2 max-w-2xl mx-auto">
-              Compare core domains, deployment flexibility, and direct business ROI across both SaaS solutions.
+              Compare core domains, deployment architecture, and direct business ROI across our 3 enterprise platforms.
             </p>
           </div>
 
           <div className="overflow-x-auto bg-white rounded-2xl shadow-lg border border-orange-200">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
                 <tr className="bg-slate-900 text-white">
-                  <th className="py-5 px-6 font-bold text-sm">Dimension / Capability</th>
-                  <th className="py-5 px-6 font-bold text-sm bg-orange-600 text-white">
+                  <th className="py-5 px-5 font-bold text-sm">Dimension / Capability</th>
+                  <th className="py-5 px-5 font-bold text-sm bg-orange-600 text-white">
                     1. SynqDoc™ AI
                   </th>
-                  <th className="py-5 px-6 font-bold text-sm text-slate-200">
+                  <th className="py-5 px-5 font-bold text-sm text-slate-200">
                     2. HRMS™ Suite
+                  </th>
+                  <th className="py-5 px-5 font-bold text-sm text-orange-300">
+                    3. ProTutors™ LMS
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 text-sm">
                 <tr className="hover:bg-orange-50/50 transition">
-                  <td className="py-4 px-6 font-semibold text-slate-900">Core Domain</td>
-                  <td className="py-4 px-6 text-slate-700 bg-orange-50/30 font-medium">
+                  <td className="py-4 px-5 font-semibold text-slate-900">Core Domain</td>
+                  <td className="py-4 px-5 text-slate-700 bg-orange-50/30 font-medium">
                     AI Conversational Platform & Smart Document Automation
                   </td>
-                  <td className="py-4 px-6 text-slate-700 font-medium">
+                  <td className="py-4 px-5 text-slate-700 font-medium">
                     Human Resource Management, Payroll, Attendance & OKRs
                   </td>
+                  <td className="py-4 px-5 text-slate-700 font-medium">
+                    White-Label LMS, Video Streaming & Academy Monetization
+                  </td>
                 </tr>
                 <tr className="hover:bg-orange-50/50 transition">
-                  <td className="py-4 px-6 font-semibold text-slate-900">Target Audience</td>
-                  <td className="py-4 px-6 text-slate-700 bg-orange-50/30">
+                  <td className="py-4 px-5 font-semibold text-slate-900">Target Audience</td>
+                  <td className="py-4 px-5 text-slate-700 bg-orange-50/30">
                     Customer Support, Operations, Legal, Finance & Enterprise Admins
                   </td>
-                  <td className="py-4 px-6 text-slate-700">
+                  <td className="py-4 px-5 text-slate-700">
                     HR Directors, People Ops, Finance, Managers & Employees
                   </td>
+                  <td className="py-4 px-5 text-slate-700">
+                    Educators, Creators, Coaching Academies & Corporate Training
+                  </td>
                 </tr>
                 <tr className="hover:bg-orange-50/50 transition">
-                  <td className="py-4 px-6 font-semibold text-slate-900">Key Automation Engine</td>
-                  <td className="py-4 px-6 text-slate-700 bg-orange-50/30">
+                  <td className="py-4 px-5 font-semibold text-slate-900">Key Automation Engine</td>
+                  <td className="py-4 px-5 text-slate-700 bg-orange-50/30">
                     Multi-Agent LLMs, Smart Document OCR, NLP Entity Extraction
                   </td>
-                  <td className="py-4 px-6 text-slate-700">
+                  <td className="py-4 px-5 text-slate-700">
                     Automated Payroll Tax Engine, Geofence Attendance, ATS Pipeline
+                  </td>
+                  <td className="py-4 px-5 text-slate-700">
+                    4K Edge CDN Streaming, Multi-Tenant Custom DNS, Zero-Fee Gateway
                   </td>
                 </tr>
                 <tr className="hover:bg-orange-50/50 transition">
-                  <td className="py-4 px-6 font-semibold text-slate-900">Live Website / Demo</td>
-                  <td className="py-4 px-6 text-slate-700 bg-orange-50/30 font-semibold text-orange-600">
+                  <td className="py-4 px-5 font-semibold text-slate-900">Live Website / Demo</td>
+                  <td className="py-4 px-5 text-slate-700 bg-orange-50/30 font-semibold text-orange-600">
                     <a href="https://synqdoc.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-700">
                       synqdoc.com ↗
                     </a>
                   </td>
-                  <td className="py-4 px-6 text-slate-700">
-                    Interactive ArdentVale Cloud Demo
+                  <td className="py-4 px-5 text-slate-700 font-semibold text-orange-600">
+                    <a href="https://apt-hrm.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-700">
+                      apt-hrm.vercel.app ↗
+                    </a>
+                  </td>
+                  <td className="py-4 px-5 text-slate-700 font-semibold text-orange-600">
+                    <a href="https://www.protutors.cloud/" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-700">
+                      protutors.cloud ↗
+                    </a>
                   </td>
                 </tr>
                 <tr className="hover:bg-orange-50/50 transition">
-                  <td className="py-4 px-6 font-semibold text-slate-900">Integration Ecosystem</td>
-                  <td className="py-4 px-6 text-slate-700 bg-orange-50/30">
+                  <td className="py-4 px-5 font-semibold text-slate-900">Integration Ecosystem</td>
+                  <td className="py-4 px-5 text-slate-700 bg-orange-50/30">
                     Salesforce, SAP, Zendesk, Slack, AWS S3, REST & Webhooks
                   </td>
-                  <td className="py-4 px-6 text-slate-700">
+                  <td className="py-4 px-5 text-slate-700">
                     Biometric Devices, Banking APIs, Accounting software, Okta SSO
                   </td>
+                  <td className="py-4 px-5 text-slate-700">
+                    Razorpay Payouts, Custom CNAME, Video CDN, WebSocket Chat
+                  </td>
                 </tr>
                 <tr className="hover:bg-orange-50/50 transition">
-                  <td className="py-4 px-6 font-semibold text-slate-900">Security & Governance</td>
-                  <td className="py-4 px-6 text-slate-700 bg-orange-50/30">
+                  <td className="py-4 px-5 font-semibold text-slate-900">Security & Governance</td>
+                  <td className="py-4 px-5 text-slate-700 bg-orange-50/30">
                     SOC 2 Type II, HIPAA Ready, PII Redaction, TLS 1.3
                   </td>
-                  <td className="py-4 px-6 text-slate-700">
+                  <td className="py-4 px-5 text-slate-700">
                     Statutory Tax Compliance, Role-based Audit Trails, 256-bit AES
+                  </td>
+                  <td className="py-4 px-5 text-slate-700">
+                    PostgreSQL Row-Level Isolation, Free Edge Wildcard SSL, RBAC
                   </td>
                 </tr>
                 <tr className="hover:bg-orange-50/50 transition">
-                  <td className="py-4 px-6 font-semibold text-slate-900">Primary Business ROI</td>
-                  <td className="py-4 px-6 font-bold text-orange-600 bg-orange-50/30">
+                  <td className="py-4 px-5 font-semibold text-slate-900">Primary Business ROI</td>
+                  <td className="py-4 px-5 font-bold text-orange-600 bg-orange-50/30">
                     85% Automated Inquiry Resolution & 10x Faster Doc Parsing
                   </td>
-                  <td className="py-4 px-6 font-bold text-orange-600">
+                  <td className="py-4 px-5 font-bold text-orange-600">
                     70% Reduction in HR Admin Work & 100% Payroll Accuracy
+                  </td>
+                  <td className="py-4 px-5 font-bold text-orange-600">
+                    0% Platform Commission & 100% Independent Brand Control
                   </td>
                 </tr>
                 <tr className="bg-slate-50">
-                  <td className="py-5 px-6 font-bold text-slate-900">Get Started</td>
-                  <td className="py-5 px-6 bg-orange-100/60">
+                  <td className="py-5 px-5 font-bold text-slate-900">Get Started</td>
+                  <td className="py-5 px-5 bg-orange-100/60">
                     <a
                       href="https://synqdoc.com/"
                       target="_blank"
@@ -799,16 +1013,25 @@ const SaasProductsPage = () => {
                       Try SynqDoc Live ↗
                     </a>
                   </td>
-                  <td className="py-5 px-6">
-                    <button
-                      onClick={() => {
-                        setSelectedProductForDemo("HRMS Suite");
-                        setDemoModalOpen(true);
-                      }}
-                      className="px-4 py-2 bg-slate-900 hover:bg-slate-700 text-white rounded-lg text-xs font-bold transition shadow"
+                  <td className="py-5 px-5">
+                    <a
+                      href="https://apt-hrm.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 bg-slate-900 hover:bg-orange-600 text-white rounded-lg text-xs font-bold transition shadow"
                     >
-                      Book HRMS Demo
-                    </button>
+                      Try HRMS Live ↗
+                    </a>
+                  </td>
+                  <td className="py-5 px-5">
+                    <a
+                      href="https://www.protutors.cloud/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-lg text-xs font-bold transition shadow"
+                    >
+                      Try ProTutors Live ↗
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -832,7 +1055,7 @@ const SaasProductsPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className={`grid grid-cols-1 ${currentProduct.plans.length === 3 ? "md:grid-cols-3 max-w-6xl" : "md:grid-cols-2 max-w-4xl"} gap-8 mx-auto`}>
             {currentProduct.plans.map((plan, idx) => (
               <div
                 key={idx}
@@ -889,7 +1112,7 @@ const SaasProductsPage = () => {
 
                 {currentProduct.websiteUrl ? (
                   <a
-                    href="https://synqdoc.com/"
+                    href={currentProduct.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full py-3.5 rounded-xl font-bold transition shadow-sm flex items-center justify-center space-x-2 ${
@@ -898,7 +1121,9 @@ const SaasProductsPage = () => {
                         : "bg-slate-900 text-white hover:bg-orange-600"
                     }`}
                   >
-                    <span>Get Started on SynqDoc.com</span>
+                    <span>
+                      Get Started on {currentProduct.id === "synqdoc" ? "SynqDoc.com" : currentProduct.id === "hrm" ? "HRMS Suite" : "ProTutors.cloud"}
+                    </span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 ) : (
@@ -929,90 +1154,85 @@ const SaasProductsPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="inline-block text-xs uppercase tracking-widest font-extrabold text-orange-400 bg-orange-950/80 border border-orange-800/60 px-3 py-1 rounded-full">
-                Zero-Trust Cloud Architecture
+                Zero Friction SaaS Foundation
               </span>
+
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Enterprise Cloud Security & Compliant Data Governance
+                Enterprise Cloud Architecture & Data Isolation
               </h2>
+
               <p className="text-slate-300 leading-relaxed">
-                Whether processing sensitive business contracts on <strong>SynqDoc</strong> or confidential employee payroll records on <strong>HRMS</strong>, our platforms maintain the highest privacy and regulatory standards.
+                Whether deploying conversational AI on <strong>SynqDoc</strong>, payroll compliance on <strong>HRMS</strong>, or online academy infrastructure on <strong>ProTutors</strong>, our platforms maintain the highest privacy and regulatory standards.
               </p>
 
               <div className="space-y-4 pt-2">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30">
-                    <Lock className="w-4 h-4" />
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                    <ShieldCheck className="w-4 h-4 text-orange-400" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-sm">256-bit Cryptographic Encryption</h4>
-                    <p className="text-slate-400 text-xs">Full AES-256 encryption at rest and TLS 1.3 in-flight with automated rotating encryption keys.</p>
+                    <div className="font-bold text-white text-sm">SOC 2 Type II & HIPAA Aligned</div>
+                    <div className="text-xs text-slate-400">Regular independent 3rd-party vulnerability assessments and continuous compliance monitoring.</div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30">
-                    <Server className="w-4 h-4" />
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                    <Lock className="w-4 h-4 text-orange-400" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-sm">High-Availability Active Redundancy</h4>
-                    <p className="text-slate-400 text-xs">Multi-zone failover architecture ensuring 99.9% uptime SLA with real-time continuous backup snapshots.</p>
+                    <div className="font-bold text-white text-sm">Row-Level Tenant Partitioning</div>
+                    <div className="text-xs text-slate-400">Strict database segregation ensures enterprise customer data is strictly segregated and never co-mingled.</div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30">
-                    <Award className="w-4 h-4" />
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                    <Zap className="w-4 h-4 text-orange-400" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-sm">SOC 2 Type II & Statutory Compliance</h4>
-                    <p className="text-slate-400 text-xs">Audited infrastructure with complete audit logging, GDPR data protection, and localized payroll tax verification.</p>
+                    <div className="font-bold text-white text-sm">99.9% High-Availability SLA</div>
+                    <div className="text-xs text-slate-400">Global multi-region failover, automated data replication, and sub-millisecond response latency.</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Visual Security Badge Matrix */}
-            <div className="lg:col-span-6 bg-slate-950 p-8 rounded-3xl border border-slate-800 shadow-2xl">
-              <div className="text-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-orange-500/20 text-orange-400 mx-auto flex items-center justify-center mb-3 border border-orange-500/30">
-                  <ShieldCheck className="w-6 h-6" />
+            <div className="lg:col-span-6">
+              <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 shadow-2xl relative">
+                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-800 pb-3 flex items-center justify-between">
+                  <span>Architecture Telemetry</span>
+                  <span className="text-emerald-400 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Operational
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold text-white">Security & Compliance Badges</h3>
-                <p className="text-xs text-slate-400 mt-1">Enterprise-ready trust framework</p>
-              </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {[
-                  { title: "SOC 2 Type II", desc: "Security Audited" },
-                  { title: "GDPR Ready", desc: "Data Protection" },
-                  { title: "256-bit AES", desc: "At Rest & Transit" },
-                  { title: "ISO 27001", desc: "InfoSec Controls" },
-                  { title: "Tax Compliant", desc: "Statutory Payroll" },
-                  { title: "SAML 2.0 / SSO", desc: "Okta & Azure AD" },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 text-center hover:border-orange-500/40 transition"
-                  >
-                    <div className="text-xs font-bold text-orange-400">{item.title}</div>
-                    <div className="text-[10px] text-slate-400 mt-0.5">{item.desc}</div>
+                <div className="space-y-4">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs text-slate-400 font-medium">Encryption Standard</div>
+                      <div className="text-base font-bold text-white">AES-256 (Rest) / TLS 1.3 (Transit)</div>
+                    </div>
+                    <Lock className="w-5 h-5 text-orange-400" />
                   </div>
-                ))}
-              </div>
 
-              <div className="mt-6 p-4 rounded-xl bg-orange-950/40 border border-orange-800/40 flex items-center justify-between">
-                <div className="text-xs text-orange-200">
-                  Looking for custom security review or sandbox deployment?
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs text-slate-400 font-medium">Infrastructure Cloud</div>
+                      <div className="text-base font-bold text-white">AWS / Cloudflare Edge Network</div>
+                    </div>
+                    <Server className="w-5 h-5 text-orange-400" />
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs text-slate-400 font-medium">Global CDN & DNS</div>
+                      <div className="text-base font-bold text-white">HTTP/3 with Automated Wildcard SSL</div>
+                    </div>
+                    <Activity className="w-5 h-5 text-emerald-400" />
+                  </div>
                 </div>
-                <button
-                  onClick={() => {
-                    setSelectedProductForDemo("Security & Compliance Consultation");
-                    setDemoModalOpen(true);
-                  }}
-                  className="px-3 py-1.5 rounded bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold shrink-0 ml-2"
-                >
-                  Contact SecOps
-                </button>
               </div>
             </div>
           </div>
@@ -1030,7 +1250,7 @@ const SaasProductsPage = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-slate-600 mt-2">
-              Everything you need to know about SynqDoc and HRMS platform onboarding and pricing.
+              Everything you need to know about SynqDoc, HRMS, and ProTutors platform onboarding and pricing.
             </p>
           </div>
 
@@ -1086,11 +1306,11 @@ const SaasProductsPage = () => {
           </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-            Ready to Experience SynqDoc™ or HRMS™?
+            Ready to Experience SynqDoc™, HRMS™, or ProTutors™?
           </h2>
 
           <p className="text-lg text-orange-50 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Schedule a personalized live session with our product engineers or explore SynqDoc directly online. We'll show you how to streamline document workflows and eliminate HR admin friction.
+            Schedule a personalized session with our solutions team or explore our live production platforms directly online. We'll show you how to streamline documents, automate HR, and launch your academy.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1098,26 +1318,36 @@ const SaasProductsPage = () => {
               href="https://synqdoc.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-bold text-base shadow-xl transition-all hover:scale-105 flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-bold text-sm shadow-xl transition-all hover:scale-105 flex items-center justify-center space-x-2"
             >
               <span>Try SynqDoc Live Demo</span>
               <ExternalLink className="w-4 h-4 text-orange-400" />
             </a>
 
             <a
-              href="https://synqdoc.com/"
+              href="https://apt-hrm.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-white hover:bg-orange-50 text-orange-600 font-bold text-base shadow-lg transition-all hover:scale-105 flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white hover:bg-orange-50 text-orange-600 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center justify-center space-x-2"
             >
-              <span>Visit SynqDoc.com</span>
+              <span>Try HRMS Live Demo</span>
               <ExternalLink className="w-4 h-4 text-orange-600" />
+            </a>
+
+            <a
+              href="https://www.protutors.cloud/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-sm shadow-xl transition-all hover:scale-105 flex items-center justify-center space-x-2 border border-white/20"
+            >
+              <span>Launch ProTutors LMS</span>
+              <ExternalLink className="w-4 h-4 text-orange-400" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* ================= INTERACTIVE DEMO BOOKING MODAL (FOR HRMS & ASSESSMENTS) ================= */}
+      {/* ================= INTERACTIVE DEMO BOOKING MODAL (FOR ALL PRODUCTS) ================= */}
       <AnimatePresence>
         {demoModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
@@ -1210,9 +1440,10 @@ const SaasProductsPage = () => {
                         onChange={(e) => setSelectedProductForDemo(e.target.value)}
                         className="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm bg-white"
                       >
-                        <option value="HRMS Suite">HRMS™ Suite</option>
+                        <option value="ProTutors LMS">ProTutors™ (protutors.cloud)</option>
+                        <option value="HRMS Suite">HRMS™ Suite (apt-hrm.vercel.app)</option>
                         <option value="SynqDoc AI">SynqDoc™ (synqdoc.com)</option>
-                        <option value="Both Products">Both Products</option>
+                        <option value="All SaaS Products">All 3 SaaS Platforms</option>
                       </select>
                     </div>
                   </div>
@@ -1223,10 +1454,10 @@ const SaasProductsPage = () => {
                     </label>
                     <textarea
                       rows={2}
-                      placeholder="Tell us about your document workflows or HR & payroll requirements..."
+                      placeholder="Tell us about your document workflows, HR & payroll, or academy requirements..."
                       value={demoFormData.message}
                       onChange={(e) => setDemoFormData({ ...demoFormData, message: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
                     />
                   </div>
 

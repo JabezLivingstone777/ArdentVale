@@ -30,13 +30,12 @@ const Header = () => {
   return (
     <>
       {/* Floating Glassmorphic Pill Header */}
-      <header className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl z-50 transition-all duration-300">
+      <header className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 transition-all duration-300">
         <div
-          className={`w-full rounded-full border px-3 sm:px-5 py-1.5 sm:py-2 transition-all duration-300 flex items-center justify-between ${
-            scrolled
+          className={`w-full rounded-full border px-3 sm:px-5 py-1.5 sm:py-2 transition-all duration-300 flex items-center justify-between ${scrolled
               ? "bg-[#0b091e]/92 border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur-2xl"
               : "bg-[#0c0a24]/80 border-white/15 shadow-[0_6px_24px_rgba(0,0,0,0.35)] backdrop-blur-xl"
-          }`}
+            }`}
         >
           {/* Brand Logo - Sleek & Refined */}
           <Link
@@ -54,22 +53,20 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation (Existing Links) */}
-          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-6 text-[13px] font-medium">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-5 text-[13px] font-medium">
             <Link
               to="/"
-              className={`transition-colors hover:text-white ${
-                location.pathname === "/" ? "text-white font-bold" : "text-slate-300"
-              }`}
+              className={`transition-colors hover:text-white ${location.pathname === "/" ? "text-white font-bold" : "text-slate-300"
+                }`}
             >
               Home
             </Link>
 
             <Link
               to="/about"
-              className={`transition-colors hover:text-white ${
-                location.pathname === "/about" ? "text-white font-bold" : "text-slate-300"
-              }`}
+              className={`transition-colors hover:text-white ${location.pathname === "/about" ? "text-white font-bold" : "text-slate-300"
+                }`}
             >
               About Us
             </Link>
@@ -82,16 +79,15 @@ const Header = () => {
             >
               <button
                 type="button"
-                className={`flex items-center space-x-1 transition-colors hover:text-white focus:outline-none cursor-pointer ${
-                  location.pathname.startsWith("/services") ||
-                  location.pathname === "/mobile" ||
-                  location.pathname === "/webdesign" ||
-                  location.pathname === "/saas-products" ||
-                  location.pathname === "/chatbot-development" ||
-                  location.pathname === "/chatbot"
+                className={`flex items-center space-x-1 transition-colors hover:text-white focus:outline-none cursor-pointer ${location.pathname.startsWith("/services") ||
+                    location.pathname === "/mobile" ||
+                    location.pathname === "/webdesign" ||
+                    location.pathname === "/saas-products" ||
+                    location.pathname === "/chatbot-development" ||
+                    location.pathname === "/chatbot"
                     ? "text-white font-bold"
                     : "text-slate-300"
-                }`}
+                  }`}
                 onClick={() => {
                   navigate("/services");
                   setIsServicesOpen(false);
@@ -99,9 +95,8 @@ const Header = () => {
               >
                 <span>Services</span>
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    isServicesOpen ? "rotate-180 text-blue-400" : ""
-                  }`}
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${isServicesOpen ? "rotate-180 text-blue-400" : ""
+                    }`}
                 />
               </button>
 
@@ -117,48 +112,43 @@ const Header = () => {
                     <div className="bg-[#100d2b]/95 backdrop-blur-2xl text-slate-200 rounded-2xl shadow-2xl border border-white/15 p-1.5 overflow-hidden">
                       <Link
                         to="/mobile"
-                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
-                          location.pathname === "/mobile"
+                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${location.pathname === "/mobile"
                             ? "bg-white/20 text-white font-bold"
                             : "text-slate-300 hover:bg-white/10 hover:text-white"
-                        }`}
+                          }`}
                         onClick={() => setIsServicesOpen(false)}
                       >
                         Mobile App Development
                       </Link>
                       <Link
                         to="/webdesign"
-                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
-                          location.pathname === "/webdesign"
+                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${location.pathname === "/webdesign"
                             ? "bg-white/20 text-white font-bold"
                             : "text-slate-300 hover:bg-white/10 hover:text-white"
-                        }`}
+                          }`}
                         onClick={() => setIsServicesOpen(false)}
                       >
                         Web Design & Development
                       </Link>
                       <Link
-                        to="/saas-products"
-                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
-                          location.pathname === "/saas-products"
-                            ? "bg-white/20 text-white font-bold"
+                        to="/our-products"
+                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${location.pathname === "/our-products" || location.pathname === "/products" || location.pathname === "/saas-products"
+                            ? "bg-orange-500/30 text-orange-300 font-bold"
                             : "text-slate-300 hover:bg-white/10 hover:text-white"
-                        }`}
+                          }`}
                         onClick={() => setIsServicesOpen(false)}
                       >
-                        SaaS Products
+                        Our Products (SaaS Suite)
                       </Link>
                       <Link
                         to="/chatbot-development"
-                        className={`flex items-center justify-between px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
-                          location.pathname === "/chatbot-development" || location.pathname === "/chatbot"
+                        className={`flex items-center justify-between px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${location.pathname === "/chatbot-development" || location.pathname === "/chatbot"
                             ? "bg-orange-500/25 text-orange-300 font-bold border border-orange-500/40"
                             : "text-slate-300 hover:bg-white/10 hover:text-orange-300"
-                        }`}
+                          }`}
                         onClick={() => setIsServicesOpen(false)}
                       >
                         <span>AI & Chatbot Development</span>
-                        
                       </Link>
                     </div>
                   </motion.div>
@@ -166,29 +156,37 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
+            {/* Our Products Link */}
+            <Link
+              to="/our-products"
+              className={`transition-colors hover:text-white ${location.pathname === "/our-products" || location.pathname === "/products"
+                  ? "text-white font-bold"
+                  : "text-slate-300"
+                }`}
+            >
+              Our Products
+            </Link>
+
             <Link
               to="/careers"
-              className={`transition-colors hover:text-white ${
-                location.pathname === "/careers" ? "text-white font-bold" : "text-slate-300"
-              }`}
+              className={`transition-colors hover:text-white ${location.pathname === "/careers" ? "text-white font-bold" : "text-slate-300"
+                }`}
             >
               Careers
             </Link>
 
-            <Link
+            {/* <Link
               to="/portfolio"
-              className={`transition-colors hover:text-white ${
-                location.pathname === "/portfolio" ? "text-white font-bold" : "text-slate-300"
-              }`}
+              className={`transition-colors hover:text-white ${location.pathname === "/portfolio" ? "text-white font-bold" : "text-slate-300"
+                }`}
             >
               Portfolio
-            </Link>
+            </Link> */}
 
             <Link
               to="/contact-us"
-              className={`transition-colors hover:text-white ${
-                location.pathname === "/contact-us" ? "text-white font-bold" : "text-slate-300"
-              }`}
+              className={`transition-colors hover:text-white ${location.pathname === "/contact-us" ? "text-white font-bold" : "text-slate-300"
+                }`}
             >
               Contact Us
             </Link>
@@ -258,44 +256,53 @@ const Header = () => {
                 <div className="pl-4 flex flex-col space-y-2 border-l border-white/10 ml-2">
                   <Link
                     to="/mobile"
-                    className={`text-sm transition ${
-                      location.pathname === "/mobile" ? "text-white font-bold" : "text-slate-300 hover:text-white"
-                    }`}
+                    className={`text-sm transition ${location.pathname === "/mobile" ? "text-white font-bold" : "text-slate-300 hover:text-white"
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     • Mobile App Development
                   </Link>
                   <Link
                     to="/webdesign"
-                    className={`text-sm transition ${
-                      location.pathname === "/webdesign" ? "text-white font-bold" : "text-slate-300 hover:text-white"
-                    }`}
+                    className={`text-sm transition ${location.pathname === "/webdesign" ? "text-white font-bold" : "text-slate-300 hover:text-white"
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     • Web Design & Development
                   </Link>
                   <Link
-                    to="/saas-products"
-                    className={`text-sm transition ${
-                      location.pathname === "/saas-products" ? "text-white font-bold" : "text-slate-300 hover:text-white"
-                    }`}
+                    to="/our-products"
+                    className={`text-sm transition flex items-center justify-between ${location.pathname === "/our-products" || location.pathname === "/products"
+                        ? "text-orange-400 font-bold"
+                        : "text-slate-300 hover:text-white"
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    • SaaS Products
+                    <span>• Our Products (SaaS Suite)</span>
+                    <span className="px-1.5 py-0.5 text-[9px] font-bold bg-orange-600 text-white rounded-full">Hot</span>
                   </Link>
                   <Link
                     to="/chatbot-development"
-                    className={`text-sm flex items-center justify-between transition ${
-                      location.pathname === "/chatbot-development" || location.pathname === "/chatbot"
+                    className={`text-sm flex items-center justify-between transition ${location.pathname === "/chatbot-development" || location.pathname === "/chatbot"
                         ? "text-orange-400 font-bold"
                         : "text-slate-300 hover:text-orange-300"
-                    }`}
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <span>• AI & Chatbot Development</span>
                     <span className="px-1.5 py-0.5 text-[9px] font-bold bg-orange-500 text-white rounded-full">New</span>
                   </Link>
                 </div>
+                <Link
+                  to="/our-products"
+                  className={`px-3 py-2 rounded-xl transition flex items-center justify-between ${location.pathname === "/our-products" || location.pathname === "/products"
+                      ? "bg-white/20 text-white font-bold"
+                      : "hover:bg-white/10 text-slate-300 hover:text-white"
+                    }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <span>Our Products</span>
+                </Link>
                 <Link
                   to="/careers"
                   className="px-3 py-2 rounded-xl hover:bg-white/10 transition"

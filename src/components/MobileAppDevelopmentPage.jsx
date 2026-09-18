@@ -89,19 +89,6 @@ const MobileAppDevelopmentPage = () => {
                     </div>
                 </div>
             </section>
-            {/* <section className="py-10 bg-white">
-                <div className="max-w-5xl mx-auto px-6 text-center">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-6">Job Seeker</h2>
-                    <p className="text-gray-700 leading-relaxed text-lg">
-                        Ervinsoft India Pvt Ltd provides job seekers with employment opportunities in small, medium, and large-scale IT companies, including Fortune 500 corporations.
-                        Our client-centric and dedicated recruitment team connects you with the latest job openings that align with your educational background, work experience, career aspirations, and long-term goals.
-                        We specialize in various IT sectors such as Application Development and Maintenance, Data Warehousing, QA Testing, ERP, Infrastructure Management, and more.
-                    </p>
-                    <p className="text-gray-700 leading-relaxed text-lg mt-4">
-                        Our demand-supply recruitment framework is supported by a robust 24/7 recruitment engine and an extensive database of industry requirements—ensuring you always stay ahead in the job market.
-                    </p>
-                </div>
-            </section> */}
             {/* Our custom mobile app development service Suite */}
             <section className="py-12 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 lg:max-w-[85%]">

@@ -8,13 +8,13 @@ const HeroSection1 = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#070614] pt-24 pb-16 px-4"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#03111f] pt-24 pb-16 px-4"
     >
       {/* 🔹 Background GhostFibers WebGL Shader Canvas */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <GhostFibers
-          lineColor="#140E35"
-          glowColor="#3437A0"
+          lineColor="#042642"
+          glowColor="#065089"
           speed={0.2}
           scale={2}
           rotation={0}
@@ -31,11 +31,11 @@ const HeroSection1 = () => {
           lineSpacing={2}
           lineSharpness={16}
           glowFalloff={10}
-          glowIntensity={1.6}
-          brightness={2}
-          blueBoost={1.25}
+          glowIntensity={1.8}
+          brightness={2.2}
+          blueBoost={1.3}
           vignette={0.8}
-          grain={0.05}
+          grain={0}
           dpr={1}
           lightMode={false}
           fps={60}
@@ -44,7 +44,7 @@ const HeroSection1 = () => {
       </div>
 
       {/* Subtle radial center glow behind text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] sm:h-[450px] bg-gradient-to-r from-blue-600/20 via-indigo-500/25 to-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] sm:h-[450px] bg-gradient-to-r from-[#065089]/30 via-sky-600/20 to-blue-500/20 rounded-full blur-[120px] pointer-events-none"></div>
 
       {/* 🔹 Hero Content based on Ardent & Vale Consultants */}
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center px-4 sm:px-6">
@@ -54,7 +54,7 @@ const HeroSection1 = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#181534]/80 backdrop-blur-xl border border-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.3)] mb-6 sm:mb-8 hover:border-white/30 transition-all cursor-pointer group"
+          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0a233d]/80 backdrop-blur-xl border border-sky-400/20 shadow-[0_4px_20px_rgba(0,0,0,0.3)] mb-6 sm:mb-8 hover:border-sky-400/40 transition-all cursor-pointer group"
         >
           <span className="px-2.5 py-0.5 rounded-full bg-white text-slate-950 font-extrabold text-[11px] tracking-wider uppercase shadow-sm">
             NEW
@@ -72,7 +72,7 @@ const HeroSection1 = () => {
           className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white max-w-5xl mx-auto leading-[1.12] mb-6 drop-shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
         >
           Architecting The Digital Change.{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-indigo-200 to-purple-300">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-300 via-blue-200 to-indigo-200">
             Engineered For Scale.
           </span>
         </motion.h1>
@@ -103,7 +103,7 @@ const HeroSection1 = () => {
 
           <Link
             to="/about"
-            className="w-full sm:w-auto min-w-[160px] px-8 py-3.5 rounded-full bg-[#24214f]/70 hover:bg-[#2f2b66] text-[#b8b3f8] hover:text-white border border-indigo-400/25 hover:border-indigo-400/50 font-semibold text-sm sm:text-base backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg"
+            className="w-full sm:w-auto min-w-[160px] px-8 py-3.5 rounded-full bg-[#065089]/30 hover:bg-[#065089]/60 text-sky-200 hover:text-white border border-sky-400/30 hover:border-sky-400/60 font-semibold text-sm sm:text-base backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg"
           >
             Learn more
           </Link>

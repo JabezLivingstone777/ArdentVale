@@ -41,12 +41,12 @@ const AboutUsPage = () => {
                     Company Overview
                 </h2>
 
-                <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-center leading-relaxed">
-                    IT Consulting • Staffing Solutions • Business Services
+                <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-center leading-relaxed font-semibold text-lg text-slate-900">
+                    Mobile App Development • Web Design & Engineering • Enterprise SaaS Products
                 </p>
-                <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-center leading-relaxed">
-                    Ardent & Vale Consultants Pvt Ltd (CIN: U78100TS2025PTC200214) delivers strategic
-                    consulting, staffing, and professional solutions for global organizations.
+                <p className="text-gray-600 mt-2 max-w-3xl mx-auto text-center leading-relaxed">
+                    Ardent & Vale Consultants Pvt Ltd (CIN: U78100TS2025PTC200214) is a technology innovation company
+                    delivering state-of-the-art mobile applications, full-stack web platforms, and intelligent SaaS solutions for businesses globally.
                 </p>
 
                 <div className="mt-12 md:mt-20 flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
@@ -62,23 +62,20 @@ const AboutUsPage = () => {
                     {/* RIGHT CARDS */}
                     <div className="w-full md:w-1/2 space-y-8">
                         <div className="bg-white shadow-lg p-8 rounded-xl border border-gray-200 transition hover:shadow-2xl hover:scale-[1.03]">
-                            <h3 className="text-2xl font-semibold text-slate-900 mb-4">Key Company Details</h3>
+                            <h3 className="text-2xl font-semibold text-slate-900 mb-4">Engineering Excellence</h3>
                             <p className="text-gray-700 leading-relaxed">
-                                We are a consulting and workforce solutions company connecting skilled talent with businesses worldwide.
-                                Ardent & Vale Consultants Pvt Ltd is a professional consulting and
-                                workforce solutions company dedicated to connecting businesses with
-                                skilled talent while enabling sustainable organizational growth. We
-                                work across multiple industries helping organizations build strong,
-                                scalable, and people-focused work environments.
+                                We architect high-performance digital products from the ground up. Combining cutting-edge mobile
+                                engineering across iOS and Android with resilient web ecosystems and automated SaaS architectures,
+                                we empower organizations to modernize workflows and capture market leadership.
                             </p>
                         </div>
 
                         <div className="bg-white shadow-lg p-8 rounded-xl border border-gray-200 transition hover:shadow-2xl hover:scale-[1.03]">
                             <h3 className="text-2xl font-semibold text-slate-900 mb-4">Mission & Vision</h3>
                             <p className="text-gray-700 leading-relaxed">
-                                We aim to transform how companies engage with talent.
-                                By following our values to achieve significant growth and success, we aim to make a meaningful change in the way our industry partners with and is regarded by candidates and clients.
-                                Our mission is to deliver long-term value through trust, transparency and performance-driven partnerships.
+                                Our mission is to engineer intuitive, secure, and scalable digital solutions that accelerate business growth.
+                                By staying at the forefront of AI innovation, cloud architecture, and modern UX design, we build long-term
+                                technology partnerships rooted in transparency, performance, and excellence.
                             </p>
                         </div>
                     </div>
@@ -91,12 +88,13 @@ const AboutUsPage = () => {
                 <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition group hover:bg-slate-700 hover:text-white">
                     <div className="flex justify-center mb-6">
                         <div className="w-16 h-16 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-white">
-                            <img src={appDevelopmentImg} className="w-8 h-8" />
+                            <img src={appDevelopmentImg} className="w-8 h-8" alt="Mobile App Development" />
                         </div>
                     </div>
                     <h3 className="text-xl font-bold mb-4">Mobile App Development</h3>
                     <p className="text-gray-600 group-hover:text-white leading-relaxed mb-6">
-                        We specialize in creating high-quality mobile applications that enhance user experience and drive business growth.                    </p>
+                        Custom native iOS, Android, Flutter, and React Native mobile applications engineered for fluid user experiences, high retention, and effortless scalability.
+                    </p>
                     <Link to="/mobile">
                         <button className="bg-slate-900 hover:bg-slate-600 text-white px-6 py-2 rounded-lg transition">
                             Read More
@@ -107,12 +105,13 @@ const AboutUsPage = () => {
                 <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition group hover:bg-slate-700 hover:text-white">
                     <div className="flex justify-center mb-6">
                         <div className="w-16 h-16 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-white">
-                            <img src={webDevelopmentImg} className="w-8 h-8" />
+                            <img src={webDevelopmentImg} className="w-8 h-8" alt="Web Development" />
                         </div>
                     </div>
                     <h3 className="text-xl font-bold mb-4">Web Design & Development</h3>
                     <p className="text-gray-600 group-hover:text-white leading-relaxed mb-6">
-                        We craft visually stunning and highly functional websites that deliver seamless user experiences and empower businesses to thrive online.                    </p>
+                        Visually stunning, secure, and responsive web platforms and custom portals built with modern full-stack architectures and seamless API integrations.
+                    </p>
                     <Link to="/webdesign">
                         <button className="bg-slate-900 hover:bg-slate-600 text-white px-6 py-2 rounded-lg transition">
                             Read More
@@ -123,7 +122,7 @@ const AboutUsPage = () => {
                 <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition group hover:bg-slate-700 hover:text-white">
                     <div className="flex justify-center mb-6">
                         <div className="w-16 h-16 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-white">
-                            <img src={staffManagementImg} className="w-8 h-8" />
+                            <img src={staffManagementImg} className="w-8 h-8" alt="SaaS Products" />
                         </div>
                     </div>
                     <h3 className="text-xl font-bold mb-4">SaaS Products</h3>
@@ -138,29 +137,29 @@ const AboutUsPage = () => {
                 </div>
             </div>
 
-            {/* Job / Employee / Client */}
+            {/* 3 Core Technology Pillars */}
             <div className="bg-white py-16">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     {[{
-                        title: "Job Seekers",
+                        title: "Cross-Platform Mobile Apps",
                         img: appDevelopmentImg,
-                        desc: "Are you looking to jump start your career or acquire more experience in the IT sectors of Application Development and Maintenance, Data Warehousing, QA Testing, ERP, or Infrastructure Management? Then you’ve come to the right place.",
+                        desc: "High-performance iOS and Android mobile solutions built with React Native and Flutter for seamless multi-platform reach and native speed.",
                         link: "/mobile"
                     }, {
-                        title: "Employees",
-                        img: staffManagementImg,
-                        desc: "Are you a business establishment who wants recruits on contract or contract-to-hire basis to realize your short-term or specialized work requirements? We can delegate the right candidate to suit your project needs.",
+                        title: "Custom Full-Stack Web",
+                        img: webDevelopmentImg,
+                        desc: "Modern React, Next.js, and cloud backend web applications optimized for speed, search visibility, conversion, and robust security.",
                         link: "/webdesign"
                     }, {
-                        title: "SaaS & Enterprise",
-                        img: webDevelopmentImg,
-                        desc: "Are you an organization looking to modernize workflows and infrastructure with cutting-edge SaaS platforms and cloud architectures? Discover our solutions.",
+                        title: "Cloud & AI SaaS Platforms",
+                        img: staffManagementImg,
+                        desc: "Proprietary multi-tenant SaaS platforms featuring SynqDoc™ for AI document automation and HRMS™ for intelligent operational workflows.",
                         link: "/saas-products"
                     }].map((card, i) => (
                         <div key={i} className="bg-white p-8 shadow-lg rounded-lg hover:bg-slate-700 hover:text-white transition">
                             <div className="flex justify-center mb-6">
-                                <img src={card.img} className="w-16 h-16" />
+                                <img src={card.img} className="w-16 h-16" alt={card.title} />
                             </div>
                             <h3 className="text-xl font-bold text-center">{card.title}</h3>
                             <p className="text-center my-4">{card.desc}</p>
@@ -182,20 +181,16 @@ const AboutUsPage = () => {
 
                     <div className="space-y-8 text-gray-600 leading-relaxed">
                         <p>
-                            At Ardent and Vale Consultants Pvt Ltd, we are committed to building the best IT careers possible by creating the perfect match between a job seeker’s expertise and client requirements, guaranteeing a long and fruitful association for all.
-                            We are committed to building strong IT careers by creating perfect talent-role matches.
+                            At Ardent and Vale Consultants Pvt Ltd, we are committed to engineering world-class software products that empower businesses to innovate and scale in an increasingly digital world.
                         </p>
                         <p>
-                            To elevate the recruiting industry by changing the rules of the game. We're building a company made up of profoundly talented people who leverage data to deliver the top passive technology talent.
-                            We elevate recruiting by leveraging data-driven talent sourcing.
+                            We bring together expert engineers, modern design paradigms, and agile methodologies to solve complex technology challenges for our partners across industries.
                         </p>
                         <p>
-                            We aim to transform how companies engage with talent.
-                            By following our values to achieve significant growth and success, we aim to make a meaningful change in the way our industry partners with and is regarded by candidates and clients.
+                            From concept discovery and UI/UX design to cloud deployment and continuous optimization, we turn visionary ideas into production-ready digital realities.
                         </p>
                         <p>
-                            We connect technology’s brightest with world-leading organizations.
-                            Our purpose is to connect technology’s greatest minds with the world’s top companies while cultivating a work environment that reflects our values: Be Amazing, Have Fun, Do the Essential, Adapt, and Have Purpose.
+                            Our purpose is to lead the technological frontier with high-impact mobile apps, robust websites, and intelligent SaaS solutions built on trust, innovation, and performance excellence.
                         </p>
                     </div>
                     {/* Contact Snapshot */}

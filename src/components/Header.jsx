@@ -12,10 +12,18 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 20;
+          setScrolled(prev => (prev !== isScrolled ? isScrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -68,23 +76,25 @@ const Header = () => {
 
             {/* Services Dropdown */}
             <div
-              className="relative"
+              className="relative py-1"
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
               <button
                 type="button"
-                className={`flex items-center space-x-1 transition-colors hover:text-white focus:outline-none ${
+                className={`flex items-center space-x-1 transition-colors hover:text-white focus:outline-none cursor-pointer ${
                   location.pathname.startsWith("/services") ||
                   location.pathname === "/mobile" ||
                   location.pathname === "/webdesign" ||
-                  location.pathname === "/saas-products"
+                  location.pathname === "/saas-products" ||
+                  location.pathname === "/chatbot-development" ||
+                  location.pathname === "/chatbot"
                     ? "text-white font-bold"
                     : "text-slate-300"
                 }`}
                 onClick={() => {
                   navigate("/services");
-                  setIsServicesOpen(!isServicesOpen);
+                  setIsServicesOpen(false);
                 }}
               >
                 <span>Services</span>
@@ -98,33 +108,59 @@ const Header = () => {
               <AnimatePresence>
                 {isServicesOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                    initial={{ opacity: 0, y: 4, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.96 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 w-60 bg-[#100d2b]/95 backdrop-blur-2xl text-slate-200 rounded-2xl shadow-2xl border border-white/15 p-1.5 z-50 overflow-hidden"
+                    exit={{ opacity: 0, y: 4, scale: 0.97 }}
+                    transition={{ duration: 0.12 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-64"
                   >
-                    <Link
-                      to="/mobile"
-                      className="block px-3.5 py-2 text-xs font-medium rounded-xl hover:bg-white/10 hover:text-white transition-colors"
-                      onClick={() => setIsServicesOpen(false)}
-                    >
-                      Mobile App Development
-                    </Link>
-                    <Link
-                      to="/webdesign"
-                      className="block px-3.5 py-2 text-xs font-medium rounded-xl hover:bg-white/10 hover:text-white transition-colors"
-                      onClick={() => setIsServicesOpen(false)}
-                    >
-                      Web Design & Development
-                    </Link>
-                    <Link
-                      to="/saas-products"
-                      className="block px-3.5 py-2 text-xs font-semibold rounded-xl text-orange-400 hover:bg-orange-500/20 hover:text-orange-300 transition-colors"
-                      onClick={() => setIsServicesOpen(false)}
-                    >
-                      SaaS Products
-                    </Link>
+                    <div className="bg-[#100d2b]/95 backdrop-blur-2xl text-slate-200 rounded-2xl shadow-2xl border border-white/15 p-1.5 overflow-hidden">
+                      <Link
+                        to="/mobile"
+                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
+                          location.pathname === "/mobile"
+                            ? "bg-white/20 text-white font-bold"
+                            : "text-slate-300 hover:bg-white/10 hover:text-white"
+                        }`}
+                        onClick={() => setIsServicesOpen(false)}
+                      >
+                        Mobile App Development
+                      </Link>
+                      <Link
+                        to="/webdesign"
+                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
+                          location.pathname === "/webdesign"
+                            ? "bg-white/20 text-white font-bold"
+                            : "text-slate-300 hover:bg-white/10 hover:text-white"
+                        }`}
+                        onClick={() => setIsServicesOpen(false)}
+                      >
+                        Web Design & Development
+                      </Link>
+                      <Link
+                        to="/saas-products"
+                        className={`block px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
+                          location.pathname === "/saas-products"
+                            ? "bg-white/20 text-white font-bold"
+                            : "text-slate-300 hover:bg-white/10 hover:text-white"
+                        }`}
+                        onClick={() => setIsServicesOpen(false)}
+                      >
+                        SaaS Products
+                      </Link>
+                      <Link
+                        to="/chatbot-development"
+                        className={`flex items-center justify-between px-3.5 py-2 text-xs font-medium rounded-xl transition-colors ${
+                          location.pathname === "/chatbot-development" || location.pathname === "/chatbot"
+                            ? "bg-orange-500/25 text-orange-300 font-bold border border-orange-500/40"
+                            : "text-slate-300 hover:bg-white/10 hover:text-orange-300"
+                        }`}
+                        onClick={() => setIsServicesOpen(false)}
+                      >
+                        <span>AI & Chatbot Development</span>
+                        
+                      </Link>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -222,24 +258,42 @@ const Header = () => {
                 <div className="pl-4 flex flex-col space-y-2 border-l border-white/10 ml-2">
                   <Link
                     to="/mobile"
-                    className="text-slate-300 text-sm hover:text-white transition"
+                    className={`text-sm transition ${
+                      location.pathname === "/mobile" ? "text-white font-bold" : "text-slate-300 hover:text-white"
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     • Mobile App Development
                   </Link>
                   <Link
                     to="/webdesign"
-                    className="text-slate-300 text-sm hover:text-white transition"
+                    className={`text-sm transition ${
+                      location.pathname === "/webdesign" ? "text-white font-bold" : "text-slate-300 hover:text-white"
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     • Web Design & Development
                   </Link>
                   <Link
                     to="/saas-products"
-                    className="text-orange-400 text-sm font-semibold hover:text-orange-300 transition"
+                    className={`text-sm transition ${
+                      location.pathname === "/saas-products" ? "text-white font-bold" : "text-slate-300 hover:text-white"
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     • SaaS Products
+                  </Link>
+                  <Link
+                    to="/chatbot-development"
+                    className={`text-sm flex items-center justify-between transition ${
+                      location.pathname === "/chatbot-development" || location.pathname === "/chatbot"
+                        ? "text-orange-400 font-bold"
+                        : "text-slate-300 hover:text-orange-300"
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span>• AI & Chatbot Development</span>
+                    <span className="px-1.5 py-0.5 text-[9px] font-bold bg-orange-500 text-white rounded-full">New</span>
                   </Link>
                 </div>
                 <Link

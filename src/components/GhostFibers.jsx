@@ -63,21 +63,7 @@ mat2 rotate2d(float angle) {
 }
 
 float grainHash(vec2 point) {
-  point = floor(point);
-  float hash = 52.9829189 * fract(dot(point, vec2(0.065, 0.005)));
-  return fract(hash);
-}
-
-float layeredGrain(vec2 fragmentPixel) {
-  vec2 point = mod(fragmentPixel + vec2(uTime * 30.0, -uTime * 21.0), 1024.0);
-  vec2 rotated = mat2(0.8, -0.5, 0.5, 0.8) * point;
-  float grain = 0.0;
-  grain += 0.40 * grainHash(rotated);
-  grain += 0.25 * grainHash(rotated * 2.0 + 17.0);
-  grain += 0.20 * grainHash(rotated * 4.0 + 47.0);
-  grain += 0.10 * grainHash(rotated * 8.0 + 113.0);
-  grain += 0.05 * grainHash(rotated * 16.0 + 191.0);
-  return grain;
+  return fract(sin(dot(point, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 void main() {
@@ -131,8 +117,10 @@ void main() {
     outputColor = backdrop + color;
   }
 
-  float noise = (layeredGrain(gl_FragCoord.xy) - 0.5) * uGrain;
-  outputColor = clamp(outputColor + noise, 0.0, 1.0);
+  if (uGrain > 0.001) {
+    float noise = (grainHash(gl_FragCoord.xy + time * 10.0) - 0.5) * uGrain;
+    outputColor = clamp(outputColor + noise, 0.0, 1.0);
+  }
   fragColor = vec4(outputColor, 1.0);
 }
 `;
@@ -179,7 +167,8 @@ const GhostFibers = ({
       webgl: 2,
       alpha: false,
       antialias: false,
-      dpr: Math.min(Math.max(dpr, 0.5), 2)
+      dpr: Math.min(Math.max(dpr, 0.5), 1.25),
+      powerPreference: "high-performance"
     });
     const gl = renderer.gl;
     const canvas = gl.canvas;
@@ -331,8 +320,9 @@ const GhostFibers = ({
       document.removeEventListener('visibilitychange', handleVisibility);
       reducedMotion.removeEventListener('change', handleReducedMotion);
       contexts.delete(container);
-      if (canvas.parentNode === container) container.removeChild(canvas);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      if (canvas.parentNode === container) {
+        container.removeChild(canvas);
+      }
     };
   }, [dpr]);
 

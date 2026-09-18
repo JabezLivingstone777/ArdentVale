@@ -7,18 +7,18 @@ const TestimonialSection = () => {
 
   const testimonials = [
     {
-      text: "Ardent & Vale Consultants Pvt. Ltd. provided highly skilled professionals who aligned perfectly with our project needs. Their dedication and responsiveness ensured our staffing requirements were consistently met. I strongly recommend Ardent & Vale Consultants Pvt. Ltd. to organizations looking for reliable and quality talent solutions.",
-      author: "Chris A",
+      text: "Ardent & Vale Consultants delivered an exceptional custom mobile application that exceeded our user engagement metrics. Their engineering team worked with extreme agility and technical precision from architecture to deployment.",
+      author: "Chris A — VP of Product",
       image: image
     },
     {
-      text: "The team at Ardent & Vale Consultants Pvt. Ltd. took the time to understand my experience, skills, and long-term career goals. They guided me throughout the hiring process with clarity and professionalism. I confidently recommend them to anyone seeking meaningful career opportunities.",
-      author: "Robert R",
+      text: "Our enterprise web platform revamp was executed flawlessly by Ardent & Vale. The new architecture is blazing fast, accessible, and has significantly boosted our online conversion rates across global markets.",
+      author: "Robert R — Head of Digital Technology",
       image: image
     },
     {
-      text: "For our fast-paced and high-value project, Ardent & Vale Consultants Pvt. Ltd. played a crucial role in delivering capable talent on time. Their continued support has helped us maintain efficiency and exceed client expectations. We truly appreciate their partnership.",
-      author: "Matt D",
+      text: "Integrating SynqDoc™ for AI document automation and their HRMS platform streamlined our daily operations drastically. Ardent & Vale Consultants is our trusted technology partner for SaaS and cloud innovation.",
+      author: "Matt D — Chief Technology Officer",
       image: image
     }
   ];
@@ -38,15 +38,15 @@ const TestimonialSection = () => {
           <h2 className="text-4xl font-bold text-black mb-2">What Our Clients Say</h2>
           <div className="w-16 h-1 bg-blue-900 mx-auto mb-8"></div>
           <p className="text-black mb-12">
-            Trusted by professionals and businesses across industries.
+            Trusted by fast-growing startups and global enterprises.
           </p>
 
           <div className="relative">
             <div className="flex items-center justify-center mb-8">
               <button
-                onClicFk={prevTestimonial}
+                onClick={prevTestimonial}
                 className="p-2 rounded-full hover:bg-gray-300 transition-colors mr-8"
-       F       >
+              >
                 <ChevronLeft className="w-6 h-6 text-black" />
               </button>
 

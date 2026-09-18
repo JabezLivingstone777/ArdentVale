@@ -23,6 +23,7 @@ const Footer = () => {
                             <li><Link to="/mobile" className="hover:text-orange-400 transition-colors">→ Mobile App Development</Link></li>
                             <li><Link to="/webdesign" className="hover:text-orange-400 transition-colors">→ Web Design and Development</Link></li>
                             <li><Link to="/saas-products" className="hover:text-orange-400 transition-colors">→ SaaS Products</Link></li>
+                            <li><Link to="/chatbot-development" className="hover:text-orange-400 transition-colors text-orange-400 font-medium">→ AI & Chatbot Development</Link></li>
                             <li><Link to="/about" className="hover:text-orange-400 transition-colors">→ About Us</Link></li>
                             <li><Link to="/contact-us" className="hover:text-orange-400 transition-colors">→ Contact Us</Link></li>
                         </ul>

@@ -191,17 +191,6 @@ const WebDesignPage = () => {
                         </div>
                     </div>
                 </section>
-                {/* <section className="py-10 bg-white">
-                    <div className="max-w-5xl mx-auto px-6 text-center">
-                        <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-6">Employee</h2>
-                        <p className="text-gray-700 leading-relaxed text-lg">
-                            Ervinsoft India Pvt Ltd provides talent to small, medium and large-scale businesses as well as Fortune 500 companies on a contract or contract-to-hire basis on short-term or specialized work requirements. We strive to understand our client’s business area and accordingly plan and execute training initiatives to put our resources at par with the business or project requirements. Our contractual staffing solutions are planned and deployed to serve the client long term with the best talent available in the market.
-                        </p>
-                        <p className="text-gray-700 leading-relaxed text-lg mt-4">
-                            Our demand-supply recruitment framework is supported by a robust 24/7 recruitment engine and an extensive database of industry requirements—ensuring you always stay ahead in the job market.
-                        </p>
-                    </div>
-                </section> */}
 
                 {/* Core Web Offerings */}
                 <section className="py-12 bg-gray-50">

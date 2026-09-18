@@ -12,11 +12,11 @@ const AboutSection = () => {
                     <div>
                         <h2 className="text-4xl font-bold text-slate-900 mb-6">About Us</h2>
                         <p className="text-gray-600 leading-relaxed mb-8">
-                            Ardent & Vale Consultants Pvt Ltd is a professional consulting and
-                            workforce solutions company dedicated to connecting businesses with
-                            skilled talent while enabling sustainable organizational growth. We
-                            work across multiple industries helping organizations build strong,
-                            scalable, and people-focused work environments.
+                            Ardent & Vale Consultants Pvt Ltd is a premier software engineering and
+                            technology consulting company specializing in custom mobile application development,
+                            high-performance web platforms, and intelligent enterprise SaaS products. We partner
+                            with startups and global enterprises to accelerate digital transformation and build
+                            scalable digital ecosystems.
                         </p>
 
                         <Link to="/about">
@@ -25,13 +25,13 @@ const AboutSection = () => {
                             </button>
                         </Link>
                     </div>
-                    {/* ABOUT LEFT */}
+                    {/* MISSION & VISION */}
                     <div>
                         <h2 className="text-4xl font-bold text-slate-900 mb-6">Mission & Vision</h2>
                         <p className="text-gray-600 leading-relaxed mb-8">
-                            Our mission is to deliver measurable value through professional staffing,
-                            consulting strategy, and operational excellence — while maintaining trust,
-                            transparency, and long-term partnerships for sustained growth.
+                            Our mission is to architect next-generation digital products through cutting-edge
+                            mobile engineering, modern cloud web architectures, and proprietary SaaS innovations—empowering
+                            organizations to scale effortlessly with unmatched security and efficiency.
                         </p>
 
                         <Link to="/about">
@@ -51,9 +51,9 @@ const AboutSection = () => {
                     <div>
                         <h2 className="text-4xl font-bold text-slate-900 mb-6">Company Overview</h2>
                         <p className="text-gray-600 leading-relaxed mb-8">
-                            Ardent & Vale Consultants Pvt Ltd (CIN: U78100TS2025PTC200214) delivers strategic
-                            consulting, IT staffing, and professional solutions for global organizations.
-                            Headquartered in Shaikpet, Telangana — we enable business scalability and talent growth.
+                            Ardent & Vale Consultants Pvt Ltd (CIN: U78100TS2025PTC200214) delivers full-lifecycle
+                            mobile app development, custom web engineering, and enterprise SaaS solutions.
+                            Headquartered in Hyderabad, Telangana — we build digital platforms engineered for global scale.
                         </p>
 
                         <Link to="/about">

@@ -1,24 +1,26 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./ScrollToTop";
 import HeroSection1 from "./components/HeroSection1";
-import HeroSection from "./components/HeroSection";
 import ServicesSection from "./components/ServicesSection";
 import AboutSection from "./components/AboutSection";
 import JobSection from "./components/JobSection";
 import TestimonialSection from "./components/TestimonialSection";
-import ContactSection from "./components/ContactSection";
 import ClientLogos from "./components/ClientLogos";
-import AboutUsPage from "./components/AboutUsPage";
-import ContactUsPage from "./components/ContactUsPage";
-import Services from "./components/Services";
-import CareersPage from "./components/CareersPage";
-import MobileAppDevelopmentPage from "./components/MobileAppDevelopmentPage";
-import WebDesignPage from "./components/WebDesignPage";
-import SaasProductsPage from "./components/SaasProductsPage";
-import PortfolioPage from "./components/PortfolioPage";
+import ContactSection from "./components/ContactSection";
+
+// Lazy-loaded pages for optimal performance and instant initial load
+const AboutUsPage = lazy(() => import("./components/AboutUsPage"));
+const ContactUsPage = lazy(() => import("./components/ContactUsPage"));
+const Services = lazy(() => import("./components/Services"));
+const CareersPage = lazy(() => import("./components/CareersPage"));
+const MobileAppDevelopmentPage = lazy(() => import("./components/MobileAppDevelopmentPage"));
+const WebDesignPage = lazy(() => import("./components/WebDesignPage"));
+const SaasProductsPage = lazy(() => import("./components/SaasProductsPage"));
+const ChatbotDevelopmentPage = lazy(() => import("./components/ChatbotDevelopmentPage"));
+const PortfolioPage = lazy(() => import("./components/PortfolioPage"));
 
 const PrivacyPolicyPage = () => {
   return (
@@ -78,47 +80,58 @@ const PrivacyPolicyPage = () => {
   );
 };
 
+// Lightweight page loader fallback
+const PageLoader = () => (
+  <div className="min-h-[60vh] w-full flex items-center justify-center bg-slate-950/20">
+    <div className="w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
+
 function App() {
   return (
     <Router>
       <div className="">
         <Header />
         <ScrollToTop />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <HeroSection1 />
-                <HeroSection />
-                <ServicesSection />
-                <AboutSection />
-                <JobSection />
-                <TestimonialSection />
-                <ClientLogos />
-                <ContactSection />
-                <button
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="fixed bottom-8 right-8 w-12 h-12 bg-slate-900 hover:bg-slate-600 text-white rounded-lg shadow-lg flex items-center justify-center transition-colors z-50"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                  </svg>
-                </button>
-              </>
-            }
-          />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/mobile" element={<MobileAppDevelopmentPage />} />
-          <Route path="/webdesign" element={<WebDesignPage />} />
-          <Route path="/saas-products" element={<SaasProductsPage />} />
-          <Route path="/staff-augmentation" element={<SaasProductsPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <HeroSection1 />
+                  <ServicesSection />
+                  <AboutSection />
+                  <JobSection />
+                  <TestimonialSection />
+                  <ClientLogos />
+                  <ContactSection />
+                  <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="fixed bottom-8 right-8 w-12 h-12 bg-slate-900 hover:bg-slate-600 text-white rounded-lg shadow-lg flex items-center justify-center transition-colors z-50 cursor-pointer"
+                    aria-label="Scroll to top"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                    </svg>
+                  </button>
+                </>
+              }
+            />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/contact-us" element={<ContactUsPage />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/mobile" element={<MobileAppDevelopmentPage />} />
+            <Route path="/webdesign" element={<WebDesignPage />} />
+            <Route path="/saas-products" element={<SaasProductsPage />} />
+            <Route path="/chatbot-development" element={<ChatbotDevelopmentPage />} />
+            <Route path="/chatbot" element={<ChatbotDevelopmentPage />} />
+            <Route path="/staff-augmentation" element={<Navigate to="/services" replace />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
       </div>
